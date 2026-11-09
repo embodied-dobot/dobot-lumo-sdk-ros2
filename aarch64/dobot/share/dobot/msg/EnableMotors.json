@@ -1,0 +1,26 @@
+{
+  "type_description_msg": {
+    "type_description": {
+      "type_name": "dobot/msg/EnableMotors",
+      "fields": [
+        {
+          "name": "flag",
+          "type": {
+            "type_id": 63,
+            "capacity": 30,
+            "string_capacity": 0,
+            "nested_type_name": ""
+          },
+          "default_value": ""
+        }
+      ]
+    },
+    "referenced_type_descriptions": []
+  },
+  "type_hashes": [
+    {
+      "type_name": "dobot/msg/EnableMotors",
+      "hash_string": "RIHS01_250dcb4588f1f8b998fc065b49c4fc4d7915c48aa8b2d1d8683353f22c14cfe7"
+    }
+  ]
+}

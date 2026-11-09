@@ -1,0 +1,96 @@
+{
+  "type_description_msg": {
+    "type_description": {
+      "type_name": "dobot/msg/LowerCmd",
+      "fields": [
+        {
+          "name": "motor_cmd",
+          "type": {
+            "type_id": 49,
+            "capacity": 12,
+            "string_capacity": 0,
+            "nested_type_name": "dobot/msg/MotorCmd"
+          },
+          "default_value": ""
+        }
+      ]
+    },
+    "referenced_type_descriptions": [
+      {
+        "type_name": "dobot/msg/MotorCmd",
+        "fields": [
+          {
+            "name": "mode",
+            "type": {
+              "type_id": 3,
+              "capacity": 0,
+              "string_capacity": 0,
+              "nested_type_name": ""
+            },
+            "default_value": ""
+          },
+          {
+            "name": "q",
+            "type": {
+              "type_id": 10,
+              "capacity": 0,
+              "string_capacity": 0,
+              "nested_type_name": ""
+            },
+            "default_value": ""
+          },
+          {
+            "name": "dq",
+            "type": {
+              "type_id": 10,
+              "capacity": 0,
+              "string_capacity": 0,
+              "nested_type_name": ""
+            },
+            "default_value": ""
+          },
+          {
+            "name": "tau",
+            "type": {
+              "type_id": 10,
+              "capacity": 0,
+              "string_capacity": 0,
+              "nested_type_name": ""
+            },
+            "default_value": ""
+          },
+          {
+            "name": "kp",
+            "type": {
+              "type_id": 10,
+              "capacity": 0,
+              "string_capacity": 0,
+              "nested_type_name": ""
+            },
+            "default_value": ""
+          },
+          {
+            "name": "kd",
+            "type": {
+              "type_id": 10,
+              "capacity": 0,
+              "string_capacity": 0,
+              "nested_type_name": ""
+            },
+            "default_value": ""
+          }
+        ]
+      }
+    ]
+  },
+  "type_hashes": [
+    {
+      "type_name": "dobot/msg/LowerCmd",
+      "hash_string": "RIHS01_c034d0cdacf70cf3ccf2a92c5389320c00e84441a2fe881094a6de6b2d476ced"
+    },
+    {
+      "type_name": "dobot/msg/MotorCmd",
+      "hash_string": "RIHS01_085413a035b1c45b7b5dccbf35ee8b2f791675f35caa98533c0651497b9bb676"
+    }
+  ]
+}

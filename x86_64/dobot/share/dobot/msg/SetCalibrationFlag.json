@@ -1,0 +1,26 @@
+{
+  "type_description_msg": {
+    "type_description": {
+      "type_name": "dobot/msg/SetCalibrationFlag",
+      "fields": [
+        {
+          "name": "flag",
+          "type": {
+            "type_id": 63,
+            "capacity": 30,
+            "string_capacity": 0,
+            "nested_type_name": ""
+          },
+          "default_value": ""
+        }
+      ]
+    },
+    "referenced_type_descriptions": []
+  },
+  "type_hashes": [
+    {
+      "type_name": "dobot/msg/SetCalibrationFlag",
+      "hash_string": "RIHS01_5105956e84b2b411d77e9669f961e3c7227948bad7778ba2d8ef0ee6cb24640f"
+    }
+  ]
+}

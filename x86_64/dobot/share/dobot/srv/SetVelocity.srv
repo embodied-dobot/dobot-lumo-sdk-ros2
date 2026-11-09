@@ -1,0 +1,13 @@
+# 下发底盘速度。超时后运控自己停。停机用 vx=vy=vyaw=0。
+# 向前为正，单位 m/s。
+float32 vx
+# 向左为正，单位 m/s。
+float32 vy
+# 逆时针为正，单位 rad/s。
+float32 vyaw
+# 保持时间，单位 s。小于 0 会被 SDK 拒绝。
+float32 duration
+int32 timeout_ms
+---
+int32 code
+string message

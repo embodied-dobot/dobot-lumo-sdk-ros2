@@ -1,0 +1,4 @@
+# generated from rosidl_cmake/cmake/rosidl_cmake-extras.cmake.in
+
+set(dobot_IDL_FILES "msg/MotorState.idl;msg/MotorCmd.idl;msg/JoystickValue.idl;msg/LowerState.idl;msg/LowerCmd.idl;msg/UpperState.idl;msg/UpperCmd.idl;msg/IMUState.idl;msg/StandingControl.idl;msg/SetFsmId.idl;msg/EnableMotors.idl;msg/ClearErrors.idl;msg/GoHome.idl;msg/SetCalibrationFlag.idl;msg/RemoteControl.idl;msg/GamepadState.idl;srv/SetRobotMode.idl;srv/GetFsmId.idl;srv/SetVelocity.idl;action/ExecuteMotion.idl")
+set(dobot_INTERFACE_FILES "msg/MotorState.msg;msg/MotorCmd.msg;msg/JoystickValue.msg;msg/LowerState.msg;msg/LowerCmd.msg;msg/UpperState.msg;msg/UpperCmd.msg;msg/IMUState.msg;msg/StandingControl.msg;msg/SetFsmId.msg;msg/EnableMotors.msg;msg/ClearErrors.msg;msg/GoHome.msg;msg/SetCalibrationFlag.msg;msg/RemoteControl.msg;msg/GamepadState.msg;srv/SetRobotMode.srv;srv/GetFsmId.srv;srv/SetVelocity.srv;action/ExecuteMotion.action")

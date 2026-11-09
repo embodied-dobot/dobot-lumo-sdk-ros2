@@ -1,0 +1,35 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from dobot/msg/MotorCmd.msg
+// generated code does not contain a copyright notice
+
+
+module dobot {
+  module msg {
+    @verbatim (language="comment", text=
+      "单个关节的伺服命令。字段顺序与 dobot::msg::dds_::MotorCmd_ 一致。" "\n"
+      "电机模式，原始协议值，范围 0–255。")
+    struct MotorCmd {
+      uint8 mode;
+
+      @verbatim (language="comment", text=
+        "目标角位置，单位 rad。")
+      float q;
+
+      @verbatim (language="comment", text=
+        "目标角速度，单位 rad/s。")
+      float dq;
+
+      @verbatim (language="comment", text=
+        "前馈力矩，单位 N·m。")
+      float tau;
+
+      @verbatim (language="comment", text=
+        "位置比例增益。负值无物理意义，SDK 会拒绝。")
+      float kp;
+
+      @verbatim (language="comment", text=
+        "速度微分增益。负值无物理意义，SDK 会拒绝。")
+      float kd;
+    };
+  };
+};

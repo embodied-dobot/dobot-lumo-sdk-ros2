@@ -1,0 +1,66 @@
+{
+  "type_description_msg": {
+    "type_description": {
+      "type_name": "dobot/msg/RemoteControl",
+      "fields": [
+        {
+          "name": "btn_move",
+          "type": {
+            "type_id": 1,
+            "capacity": 0,
+            "string_capacity": 0,
+            "nested_type_name": "dobot/msg/JoystickValue"
+          },
+          "default_value": ""
+        },
+        {
+          "name": "btn_turn",
+          "type": {
+            "type_id": 1,
+            "capacity": 0,
+            "string_capacity": 0,
+            "nested_type_name": "dobot/msg/JoystickValue"
+          },
+          "default_value": ""
+        }
+      ]
+    },
+    "referenced_type_descriptions": [
+      {
+        "type_name": "dobot/msg/JoystickValue",
+        "fields": [
+          {
+            "name": "x",
+            "type": {
+              "type_id": 10,
+              "capacity": 0,
+              "string_capacity": 0,
+              "nested_type_name": ""
+            },
+            "default_value": ""
+          },
+          {
+            "name": "y",
+            "type": {
+              "type_id": 10,
+              "capacity": 0,
+              "string_capacity": 0,
+              "nested_type_name": ""
+            },
+            "default_value": ""
+          }
+        ]
+      }
+    ]
+  },
+  "type_hashes": [
+    {
+      "type_name": "dobot/msg/RemoteControl",
+      "hash_string": "RIHS01_516dfeeded3507287d0b8776999e9d29268aafe4563784228901c63805bc39a2"
+    },
+    {
+      "type_name": "dobot/msg/JoystickValue",
+      "hash_string": "RIHS01_798c54bde9ec8d7e991669445dcb836877609c81e070929e5a3fc10d20a9b219"
+    }
+  ]
+}

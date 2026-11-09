@@ -1,0 +1,42 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from dobot/msg/IMUState.msg
+// generated code does not contain a copyright notice
+
+
+module dobot {
+  module msg {
+    typedef float float__4[4];
+    typedef float float__3[3];
+    @verbatim (language="comment", text=
+      "IMU 状态。话题 rt/pelvis/imu/data 与 rt/torso/imu/data 共用本类型。" "\n"
+      "同一次会话只应订阅其中一路，与 C++ SDK 的约束一致。" "\n"
+      "IMU 编号，范围 0–4294967295。")
+    struct IMUState {
+      uint32 imu_id;
+
+      @verbatim (language="comment", text=
+        "四元数，4 个数，顺序与底层 IDL 一致。")
+      float__4 quaternion;
+
+      @verbatim (language="comment", text=
+        "三轴陀螺仪，顺序与底层 IDL 一致，单位通常为 rad/s。")
+      float__3 gyroscope;
+
+      @verbatim (language="comment", text=
+        "三轴加速度，顺序与底层 IDL 一致，单位通常为 m/s^2。")
+      float__3 accelerometer;
+
+      @verbatim (language="comment", text=
+        "欧拉角，顺序滚转、俯仰、偏航，单位 rad。")
+      float__3 rpy;
+
+      @verbatim (language="comment", text=
+        "温度原始值，范围 0–255。")
+      uint8 temperature;
+
+      @verbatim (language="comment", text=
+        "采样时间戳，单位 us。")
+      uint64 timestamp_us;
+    };
+  };
+};

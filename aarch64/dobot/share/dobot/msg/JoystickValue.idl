@@ -1,0 +1,16 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from dobot/msg/JoystickValue.msg
+// generated code does not contain a copyright notice
+
+
+module dobot {
+  module msg {
+    @verbatim (language="comment", text=
+      "摇杆分量。x、y 为原始键值，常见范围 -1.0–1.0。")
+    struct JoystickValue {
+      float x;
+
+      float y;
+    };
+  };
+};

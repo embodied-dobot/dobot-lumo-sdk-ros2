@@ -1,0 +1,15 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from dobot/msg/ClearErrors.msg
+// generated code does not contain a copyright notice
+
+
+module dobot {
+  module msg {
+    @verbatim (language="comment", text=
+      "清错。话题 rt/clear/errors。" "\n"
+      "调用方自增的消息编号，用于区分重复请求。")
+    struct ClearErrors {
+      int32 msg_id;
+    };
+  };
+};

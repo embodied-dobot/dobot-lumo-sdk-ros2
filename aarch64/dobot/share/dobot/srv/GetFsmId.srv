@@ -1,0 +1,6 @@
+# 查询当前运控状态机编号。0 也是合法编号。
+int32 timeout_ms
+---
+int32 code
+string message
+int32 fsm_id

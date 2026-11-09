@@ -1,0 +1,34 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from dobot/srv/SetVelocity.srv
+// generated code does not contain a copyright notice
+
+
+module dobot {
+  module srv {
+    @verbatim (language="comment", text=
+      "下发底盘速度。超时后运控自己停。停机用 vx=vy=vyaw=0。" "\n"
+      "向前为正，单位 m/s。")
+    struct SetVelocity_Request {
+      float vx;
+
+      @verbatim (language="comment", text=
+        "向左为正，单位 m/s。")
+      float vy;
+
+      @verbatim (language="comment", text=
+        "逆时针为正，单位 rad/s。")
+      float vyaw;
+
+      @verbatim (language="comment", text=
+        "保持时间，单位 s。小于 0 会被 SDK 拒绝。")
+      float duration;
+
+      int32 timeout_ms;
+    };
+    struct SetVelocity_Response {
+      int32 code;
+
+      string message;
+    };
+  };
+};

@@ -1,0 +1,17 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from dobot/msg/UpperCmd.msg
+// generated code does not contain a copyright notice
+
+#include "dobot/msg/MotorCmd.idl"
+
+module dobot {
+  module msg {
+    typedef dobot::msg::MotorCmd dobot__msg__MotorCmd;
+    typedef dobot__msg__MotorCmd dobot__msg__MotorCmd__18[18];
+    @verbatim (language="comment", text=
+      "上肢命令。话题 rt/upper/cmd。motor_cmd 长度 18，与底层 IDL 一致。")
+    struct UpperCmd {
+      dobot__msg__MotorCmd__18 motor_cmd;
+    };
+  };
+};

@@ -1,0 +1,26 @@
+{
+  "type_description_msg": {
+    "type_description": {
+      "type_name": "dobot/msg/ClearErrors",
+      "fields": [
+        {
+          "name": "msg_id",
+          "type": {
+            "type_id": 6,
+            "capacity": 0,
+            "string_capacity": 0,
+            "nested_type_name": ""
+          },
+          "default_value": ""
+        }
+      ]
+    },
+    "referenced_type_descriptions": []
+  },
+  "type_hashes": [
+    {
+      "type_name": "dobot/msg/ClearErrors",
+      "hash_string": "RIHS01_dbc1f7903d87697ab676d89ceccd079b915fb3afa1e3a35e6a5ba11f1e03664d"
+    }
+  ]
+}

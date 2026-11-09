@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>dobot_user_template</name>
+  <version>0.1.0</version>
+  <description>二开空白节点。复制整个 template 目录到 src/ 下，改包名后填业务。</description>
+  <maintainer email="sdk@dobot.local">dobot</maintainer>
+  <license>Apache-2.0</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>rclcpp</depend>
+  <depend>dobot</depend>
+  <depend>dobot_robot_sdk</depend>
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

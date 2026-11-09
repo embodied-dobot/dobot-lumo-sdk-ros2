@@ -1,0 +1,16 @@
+# 与固件 dobot_fastdds_config.xml 对齐：RELIABLE + VOLATILE + KEEP_LAST depth 1。
+# heartbeat_period_ms: 1000
+# serialization: xcdr1
+# 底层 DDS 话题名在本话题前加 rt/。例如本文件对应 rt/set/calibration/flag 。
+# ROS2 用户订阅去掉 rt/ 的名字。rmw 在 ROS_DOMAIN_ID 上会再次加上 rt/。
+/set/calibration/flag:
+  subscription:
+    reliability: reliable
+    durability: volatile
+    history: keep_last
+    depth: 1
+  publisher:
+    reliability: reliable
+    durability: volatile
+    history: keep_last
+    depth: 1

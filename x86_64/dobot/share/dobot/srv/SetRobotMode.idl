@@ -1,0 +1,30 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from dobot/srv/SetRobotMode.srv
+// generated code does not contain a copyright notice
+
+
+module dobot {
+  module srv {
+    @verbatim (language="comment", text=
+      "切换运控模式。mode 取值：zero_torque damping custom_debug ready standing walking。" "\n"
+      "对应状态机编号 0 / 1 / 2 / 100 / 300 / 304。")
+    struct SetRobotMode_Request {
+      string mode;
+
+      @verbatim (language="comment", text=
+        "本次调用的超时，单位 ms，范围 1–60000。")
+      int32 timeout_ms;
+    };
+    @verbatim (language="comment", text=
+      "0 成功。非 0 见 dobot_robot_sdk 错误码。")
+    struct SetRobotMode_Response {
+      int32 code;
+
+      string message;
+
+      @verbatim (language="comment", text=
+        "已下发的状态机编号。失败时为 -1。")
+      int32 fsm_id;
+    };
+  };
+};

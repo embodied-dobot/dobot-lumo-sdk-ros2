@@ -1,0 +1,21 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from dobot/srv/GetFsmId.srv
+// generated code does not contain a copyright notice
+
+
+module dobot {
+  module srv {
+    @verbatim (language="comment", text=
+      "查询当前运控状态机编号。0 也是合法编号。")
+    struct GetFsmId_Request {
+      int32 timeout_ms;
+    };
+    struct GetFsmId_Response {
+      int32 code;
+
+      string message;
+
+      int32 fsm_id;
+    };
+  };
+};

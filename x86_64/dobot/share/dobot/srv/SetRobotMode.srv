@@ -1,0 +1,11 @@
+# 切换运控模式。mode 取值：zero_torque damping custom_debug ready standing walking。
+# 对应状态机编号 0 / 1 / 2 / 100 / 300 / 304。
+string mode
+# 本次调用的超时，单位 ms，范围 1–60000。
+int32 timeout_ms
+---
+# 0 成功。非 0 见 dobot_robot_sdk 错误码。
+int32 code
+string message
+# 已下发的状态机编号。失败时为 -1。
+int32 fsm_id

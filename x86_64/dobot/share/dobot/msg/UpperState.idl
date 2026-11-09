@@ -1,0 +1,31 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from dobot/msg/UpperState.msg
+// generated code does not contain a copyright notice
+
+#include "dobot/msg/MotorState.idl"
+
+module dobot {
+  module msg {
+    typedef uint8 uint8__16[16];
+    typedef dobot::msg::MotorState dobot__msg__MotorState;
+    typedef dobot__msg__MotorState dobot__msg__MotorState__18[18];
+    @verbatim (language="comment", text=
+      "上肢状态。话题 rt/upper/state。" "\n"
+      "产品型号，定长 16 字节，不足补 0。与 IDL char 对应。")
+    struct UpperState {
+      uint8__16 robot_type;
+
+      @verbatim (language="comment", text=
+        "true 表示上肢当前由外部控制。")
+      boolean is_upper_control;
+
+      @verbatim (language="comment", text=
+        "上肢电机状态，长度 18。")
+      dobot__msg__MotorState__18 motor_state;
+
+      @verbatim (language="comment", text=
+        "采样时间戳，单位 us。")
+      uint64 timestamp_us;
+    };
+  };
+};

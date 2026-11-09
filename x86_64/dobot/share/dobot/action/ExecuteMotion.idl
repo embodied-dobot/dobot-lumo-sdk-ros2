@@ -1,0 +1,46 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from dobot/action/ExecuteMotion.action
+// generated code does not contain a copyright notice
+
+
+module dobot {
+  module action {
+    @verbatim (language="comment", text=
+      "运控动作。command 取值 set_mode、set_velocity、play_dance。")
+    struct ExecuteMotion_Goal {
+      string command;
+
+      @verbatim (language="comment", text=
+        "set_mode 时使用，取值同 SetRobotMode.mode。")
+      string mode;
+
+      float vx;
+
+      float vy;
+
+      float vyaw;
+
+      float duration;
+
+      @verbatim (language="comment", text=
+        "play_dance 时使用，合法范围 350–400。")
+      int32 fsm_id;
+
+      int32 timeout_ms;
+    };
+    struct ExecuteMotion_Result {
+      int32 code;
+
+      string message;
+
+      int32 fsm_id;
+    };
+    @verbatim (language="comment", text=
+      "当前阶段：accepted、running、finished。")
+    struct ExecuteMotion_Feedback {
+      string stage;
+
+      int32 fsm_id;
+    };
+  };
+};

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>dobot_robot_examples</name>
+  <version>0.1.0</version>
+  <description>Dobot ROS2 示例：订阅、发令、闭环，以及把 JSON-RPC 暴露成服务的 motion_service。</description>
+  <maintainer email="sdk@dobot.local">dobot</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>rclcpp</depend>
+  <depend>rclcpp_action</depend>
+  <depend>rclpy</depend>
+  <depend>dobot</depend>
+  <depend>dobot_robot_sdk</depend>
+  <exec_depend>launch_ros</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
