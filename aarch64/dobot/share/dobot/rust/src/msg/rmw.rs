@@ -4,6 +4,111 @@ use serde::{Deserialize, Serialize};
 
 #[link(name = "dobot__rosidl_typesupport_c")]
 extern "C" {
+    fn rosidl_typesupport_c__get_message_type_support_handle__dobot__msg__FsmInfo() -> *const std::ffi::c_void;
+}
+
+#[link(name = "dobot__rosidl_generator_c")]
+extern "C" {
+    fn dobot__msg__FsmInfo__init(msg: *mut FsmInfo) -> bool;
+    fn dobot__msg__FsmInfo__Sequence__init(seq: *mut rosidl_runtime_rs::Sequence<FsmInfo>, size: usize) -> bool;
+    fn dobot__msg__FsmInfo__Sequence__fini(seq: *mut rosidl_runtime_rs::Sequence<FsmInfo>);
+    fn dobot__msg__FsmInfo__Sequence__copy(in_seq: &rosidl_runtime_rs::Sequence<FsmInfo>, out_seq: *mut rosidl_runtime_rs::Sequence<FsmInfo>) -> bool;
+}
+
+// Corresponds to dobot__msg__FsmInfo
+#[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
+
+/// 一个运控状态机。对应 C++ 的 dobot::motion::FsmInfo。
+
+#[repr(C)]
+#[derive(Clone, Debug, PartialEq, PartialOrd)]
+pub struct FsmInfo {
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub fsm_id: i32,
+
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub is_dance: bool,
+
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub name: rosidl_runtime_rs::String,
+
+    /// 以下四项只在 is_dance 为 true 时有内容，否则是空串或 0。
+    pub dance_name: rosidl_runtime_rs::String,
+
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub model_file: rosidl_runtime_rs::String,
+
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub motion_loop_length: i32,
+
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub motion_hold_back_steps: i32,
+
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub motion_start_step: i32,
+
+}
+
+
+
+impl Default for FsmInfo {
+  fn default() -> Self {
+    unsafe {
+      let mut msg = std::mem::zeroed();
+      if !dobot__msg__FsmInfo__init(&mut msg as *mut _) {
+        panic!("Call to dobot__msg__FsmInfo__init() failed");
+      }
+      msg
+    }
+  }
+}
+
+impl rosidl_runtime_rs::SequenceAlloc for FsmInfo {
+  fn sequence_init(seq: &mut rosidl_runtime_rs::Sequence<Self>, size: usize) -> bool {
+    // SAFETY: This is safe since the pointer is guaranteed to be valid/initialized.
+    unsafe { dobot__msg__FsmInfo__Sequence__init(seq as *mut _, size) }
+  }
+  fn sequence_fini(seq: &mut rosidl_runtime_rs::Sequence<Self>) {
+    // SAFETY: This is safe since the pointer is guaranteed to be valid/initialized.
+    unsafe { dobot__msg__FsmInfo__Sequence__fini(seq as *mut _) }
+  }
+  fn sequence_copy(in_seq: &rosidl_runtime_rs::Sequence<Self>, out_seq: &mut rosidl_runtime_rs::Sequence<Self>) -> bool {
+    // SAFETY: This is safe since the pointer is guaranteed to be valid/initialized.
+    unsafe { dobot__msg__FsmInfo__Sequence__copy(in_seq, out_seq as *mut _) }
+  }
+}
+
+impl rosidl_runtime_rs::Message for FsmInfo {
+  type RmwMsg = Self;
+  fn into_rmw_message(msg_cow: std::borrow::Cow<'_, Self>) -> std::borrow::Cow<'_, Self::RmwMsg> { msg_cow }
+  fn from_rmw_message(msg: Self::RmwMsg) -> Self { msg }
+}
+
+impl rosidl_runtime_rs::RmwMessage for FsmInfo where Self: Sized {
+  const TYPE_NAME: &'static str = "dobot/msg/FsmInfo";
+  fn get_type_support() -> *const std::ffi::c_void {
+    // SAFETY: No preconditions for this function.
+    unsafe { rosidl_typesupport_c__get_message_type_support_handle__dobot__msg__FsmInfo() }
+  }
+}
+
+
+#[link(name = "dobot__rosidl_typesupport_c")]
+extern "C" {
     fn rosidl_typesupport_c__get_message_type_support_handle__dobot__msg__MotorState() -> *const std::ffi::c_void;
 }
 

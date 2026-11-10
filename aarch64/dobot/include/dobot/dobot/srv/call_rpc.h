@@ -1,0 +1,12 @@
+// generated from rosidl_generator_c/resource/idl.h.em
+// with input from dobot:srv/CallRpc.idl
+// generated code does not contain a copyright notice
+
+#ifndef DOBOT__SRV__CALL_RPC_H_
+#define DOBOT__SRV__CALL_RPC_H_
+
+#include "dobot/srv/detail/call_rpc__struct.h"
+#include "dobot/srv/detail/call_rpc__functions.h"
+#include "dobot/srv/detail/call_rpc__type_support.h"
+
+#endif  // DOBOT__SRV__CALL_RPC_H_

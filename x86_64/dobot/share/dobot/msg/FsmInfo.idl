@@ -1,0 +1,30 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from dobot/msg/FsmInfo.msg
+// generated code does not contain a copyright notice
+
+
+module dobot {
+  module msg {
+    @verbatim (language="comment", text=
+      "一个运控状态机。对应 C++ 的 dobot::motion::FsmInfo。")
+    struct FsmInfo {
+      int32 fsm_id;
+
+      boolean is_dance;
+
+      string name;
+
+      @verbatim (language="comment", text=
+        "以下四项只在 is_dance 为 true 时有内容，否则是空串或 0。")
+      string dance_name;
+
+      string model_file;
+
+      int32 motion_loop_length;
+
+      int32 motion_hold_back_steps;
+
+      int32 motion_start_step;
+    };
+  };
+};

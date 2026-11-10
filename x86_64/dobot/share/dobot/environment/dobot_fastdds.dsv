@@ -1,0 +1,1 @@
+set-if-unset;FASTDDS_DEFAULT_PROFILES_FILE;share/dobot/fastdds/dobot_no_typeinfo.xml

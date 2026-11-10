@@ -4,6 +4,8 @@ msg/ClearErrors.idl
 msg/ClearErrors.msg
 msg/EnableMotors.idl
 msg/EnableMotors.msg
+msg/FsmInfo.idl
+msg/FsmInfo.msg
 msg/GamepadState.idl
 msg/GamepadState.msg
 msg/GoHome.idl
@@ -32,8 +34,16 @@ msg/UpperCmd.idl
 msg/UpperCmd.msg
 msg/UpperState.idl
 msg/UpperState.msg
+srv/CallRpc.idl
+srv/CallRpc.srv
+srv/ExecuteSkill.idl
+srv/ExecuteSkill.srv
 srv/GetFsmId.idl
 srv/GetFsmId.srv
+srv/GetFsmList.idl
+srv/GetFsmList.srv
+srv/PlayPresetAction.idl
+srv/PlayPresetAction.srv
 srv/SetRobotMode.idl
 srv/SetRobotMode.srv
 srv/SetVelocity.idl

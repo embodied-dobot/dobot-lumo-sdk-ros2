@@ -3,6 +3,103 @@ use serde::{Deserialize, Serialize};
 
 
 
+// Corresponds to dobot__msg__FsmInfo
+/// 一个运控状态机。对应 C++ 的 dobot::motion::FsmInfo。
+
+#[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
+#[derive(Clone, Debug, PartialEq, PartialOrd)]
+pub struct FsmInfo {
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub fsm_id: i32,
+
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub is_dance: bool,
+
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub name: std::string::String,
+
+    /// 以下四项只在 is_dance 为 true 时有内容，否则是空串或 0。
+    pub dance_name: std::string::String,
+
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub model_file: std::string::String,
+
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub motion_loop_length: i32,
+
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub motion_hold_back_steps: i32,
+
+
+    // This member is not documented.
+    #[allow(missing_docs)]
+    pub motion_start_step: i32,
+
+}
+
+
+
+impl Default for FsmInfo {
+  fn default() -> Self {
+    <Self as rosidl_runtime_rs::Message>::from_rmw_message(super::msg::rmw::FsmInfo::default())
+  }
+}
+
+impl rosidl_runtime_rs::Message for FsmInfo {
+  type RmwMsg = super::msg::rmw::FsmInfo;
+
+  fn into_rmw_message(msg_cow: std::borrow::Cow<'_, Self>) -> std::borrow::Cow<'_, Self::RmwMsg> {
+    match msg_cow {
+      std::borrow::Cow::Owned(msg) => std::borrow::Cow::Owned(Self::RmwMsg {
+        fsm_id: msg.fsm_id,
+        is_dance: msg.is_dance,
+        name: msg.name.as_str().into(),
+        dance_name: msg.dance_name.as_str().into(),
+        model_file: msg.model_file.as_str().into(),
+        motion_loop_length: msg.motion_loop_length,
+        motion_hold_back_steps: msg.motion_hold_back_steps,
+        motion_start_step: msg.motion_start_step,
+      }),
+      std::borrow::Cow::Borrowed(msg) => std::borrow::Cow::Owned(Self::RmwMsg {
+      fsm_id: msg.fsm_id,
+      is_dance: msg.is_dance,
+        name: msg.name.as_str().into(),
+        dance_name: msg.dance_name.as_str().into(),
+        model_file: msg.model_file.as_str().into(),
+      motion_loop_length: msg.motion_loop_length,
+      motion_hold_back_steps: msg.motion_hold_back_steps,
+      motion_start_step: msg.motion_start_step,
+      })
+    }
+  }
+
+  fn from_rmw_message(msg: Self::RmwMsg) -> Self {
+    Self {
+      fsm_id: msg.fsm_id,
+      is_dance: msg.is_dance,
+      name: msg.name.to_string(),
+      dance_name: msg.dance_name.to_string(),
+      model_file: msg.model_file.to_string(),
+      motion_loop_length: msg.motion_loop_length,
+      motion_hold_back_steps: msg.motion_hold_back_steps,
+      motion_start_step: msg.motion_start_step,
+    }
+  }
+}
+
+
 // Corresponds to dobot__msg__MotorState
 /// 单个关节的伺服状态。字段顺序与 dobot::msg::dds_::MotorState_ 一致。
 /// 电机模式，原始协议值，范围 0–255。

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  dobot 包默认加载的 Fast DDS 参与者配置，由 hooks/dobot_fastdds.dsv 在 source 时通过
+  FASTDDS_DEFAULT_PROFILES_FILE 指给 rmw_fastrtps_cpp。
+
+  关闭 XTypes 类型信息传播。不关时，ROS 订阅端（类型来自 msg 经 rosidl 生成）能发现话题，
+  但机器人侧的写端不与它匹配，echo 没有数据。直接用固件 IDL 生成的 Fast DDS 程序不受影响。
+  代价：两端不再在发现阶段检查类型是否一致。固件改了 IDL 而本包没跟上时，不会报不匹配，
+  而是可能解码出错误数据。改 IDL 时要同步改 msg。
+-->
+<dds xmlns="http://www.eprosima.com">
+  <profiles>
+    <participant profile_name="dobot_no_typeinfo" is_default_profile="true">
+      <rtps>
+        <propertiesPolicy>
+          <properties>
+            <property>
+              <name>fastdds.type_propagation</name>
+              <value>disabled</value>
+            </property>
+          </properties>
+        </propertiesPolicy>
+      </rtps>
+    </participant>
+  </profiles>
+</dds>

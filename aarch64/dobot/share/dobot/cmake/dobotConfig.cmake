@@ -16,7 +16,7 @@ set(_dobot_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT dobot_FIND_QUIETLY)
-  message(STATUS "Found dobot: 0.1.0 (${dobot_DIR})")
+  message(STATUS "Found dobot: 0.2.0 (${dobot_DIR})")
 endif()
 
 # warn when using a deprecated package

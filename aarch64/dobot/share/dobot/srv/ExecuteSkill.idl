@@ -1,0 +1,24 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from dobot/srv/ExecuteSkill.srv
+// generated code does not contain a copyright notice
+
+
+module dobot {
+  module srv {
+    @verbatim (language="comment", text=
+      "播放机器人技能目录里的动作。对应 C++ 的 MotionRpc::ExecuteAction。" "\n"
+      "file_path 是机器人上技能目录里的文件名，不是调用方本机路径。")
+    struct ExecuteSkill_Request {
+      string file_path;
+
+      @verbatim (language="comment", text=
+        "只覆盖这次 RPC 往返，不表示动作已经播完。")
+      int32 timeout_ms;
+    };
+    struct ExecuteSkill_Response {
+      int32 code;
+
+      string message;
+    };
+  };
+};

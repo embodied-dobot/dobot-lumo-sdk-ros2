@@ -1,0 +1,33 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from dobot/srv/PlayPresetAction.srv
+// generated code does not contain a copyright notice
+
+
+module dobot {
+  module srv {
+    @verbatim (language="comment", text=
+      "播放预设动作。对应 C++ 的 AutoEnterBox、AutoExitBox、LieDown、GoProne、StandUpFromSupine、StandUpFromProne。" "\n"
+      "action 取值与状态机编号：" "\n"
+      "  auto_enter_box 307   自主入箱，完成后自动进入阻尼（1）" "\n"
+      "  auto_exit_box 308    自主出箱，先进入拟人行走（304），约 2 s 后自动进入站立（300）" "\n"
+      "  lie_down 310         躺下，完成后自动进入阻尼（1）" "\n"
+      "  stand_up_supine 311  仰姿起身，收尾同 auto_exit_box" "\n"
+      "  go_prone 312         趴下，完成后自动进入阻尼（1）" "\n"
+      "  stand_up_prone 313   俯姿起身，收尾同 auto_exit_box" "\n"
+      "成功只表示切换被接受，不表示动作已经做完。auto_exit_box 等动作返回后不要立刻切 standing。")
+    struct PlayPresetAction_Request {
+      string action;
+
+      int32 timeout_ms;
+    };
+    struct PlayPresetAction_Response {
+      int32 code;
+
+      string message;
+
+      @verbatim (language="comment", text=
+        "已下发的状态机编号。失败时为 -1。")
+      int32 fsm_id;
+    };
+  };
+};

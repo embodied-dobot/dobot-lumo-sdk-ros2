@@ -1,0 +1,8 @@
+# 播放机器人技能目录里的动作。对应 C++ 的 MotionRpc::ExecuteAction。
+# file_path 是机器人上技能目录里的文件名，不是调用方本机路径。
+string file_path
+# 只覆盖这次 RPC 往返，不表示动作已经播完。
+int32 timeout_ms
+---
+int32 code
+string message

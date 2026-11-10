@@ -6,6 +6,7 @@
 
 #include "dobot/msg/clear_errors.hpp"
 #include "dobot/msg/enable_motors.hpp"
+#include "dobot/msg/fsm_info.hpp"
 #include "dobot/msg/gamepad_state.hpp"
 #include "dobot/msg/go_home.hpp"
 #include "dobot/msg/imu_state.hpp"
@@ -17,7 +18,11 @@
 #include "dobot/msg/standing_control.hpp"
 #include "dobot/msg/upper_cmd.hpp"
 #include "dobot/msg/upper_state.hpp"
+#include "dobot/srv/call_rpc.hpp"
+#include "dobot/srv/execute_skill.hpp"
 #include "dobot/srv/get_fsm_id.hpp"
+#include "dobot/srv/get_fsm_list.hpp"
+#include "dobot/srv/play_preset_action.hpp"
 #include "dobot/srv/set_robot_mode.hpp"
 #include "dobot/srv/set_velocity.hpp"
 #include "dobot_robot_sdk/error.hpp"
@@ -95,6 +100,19 @@ class RobotClient {
   // vx 向前为正，m/s；vy 向左为正，m/s；vyaw 逆时针为正，rad/s。duration 单位秒。
   ErrorCode set_velocity(float vx, float vy, float vyaw, float duration, int timeout_ms, std::string* error);
 
+  // 查询机器人上全部状态机，包括舞蹈。对应 C++ SDK 的 Motion::GetFsmList。
+  ErrorCode get_fsm_list(int timeout_ms, std::vector<dobot::msg::FsmInfo>* fsm_list, std::string* error);
+  // action: auto_enter_box auto_exit_box lie_down go_prone stand_up_supine stand_up_prone。
+  // 成功只表示切换被接受，不表示动作做完。auto_exit_box、stand_up_* 返回后不要立刻切 standing，见 PlayPresetAction.srv。
+  ErrorCode play_preset_action(const std::string& action, int timeout_ms, std::int32_t* fsm_id, std::string* error);
+  // 播放机器人技能目录里的动作。file_path 是机器人上的文件名。成功只表示 RPC 被接受。
+  ErrorCode execute_skill(const std::string& file_path, int timeout_ms, std::string* error);
+  // 直接调用一个 JSON-RPC 方法，给还没有单独服务的方法用。params_json 为空时按 "{}"。
+  // 返回 kOk 只表示传输成功。result 的业务含义要看 response_json。
+  ErrorCode call_rpc(
+      const std::string& method, const std::string& params_json, int timeout_ms, std::string* response_json,
+      std::string* error);
+
   // 异步版本。返回的 future 要等节点被 spin 才会完成。error 只表示客户端还没建好。
   rclcpp::Client<dobot::srv::GetFsmId>::SharedFuture get_fsm_id_async(int timeout_ms, std::string* error);
   rclcpp::Client<dobot::srv::SetRobotMode>::SharedFuture set_robot_mode_async(
@@ -134,6 +152,10 @@ class RobotClient {
   rclcpp::Client<dobot::srv::GetFsmId>::SharedPtr get_fsm_client_;
   rclcpp::Client<dobot::srv::SetRobotMode>::SharedPtr set_mode_client_;
   rclcpp::Client<dobot::srv::SetVelocity>::SharedPtr set_vel_client_;
+  rclcpp::Client<dobot::srv::GetFsmList>::SharedPtr get_fsm_list_client_;
+  rclcpp::Client<dobot::srv::PlayPresetAction>::SharedPtr preset_client_;
+  rclcpp::Client<dobot::srv::ExecuteSkill>::SharedPtr skill_client_;
+  rclcpp::Client<dobot::srv::CallRpc>::SharedPtr call_rpc_client_;
 };
 
 }  // namespace dobot_robot_sdk

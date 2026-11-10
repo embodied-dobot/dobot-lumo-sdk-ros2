@@ -1,0 +1,12 @@
+# 直接调用机器人上的一个 JSON-RPC 方法。对应 C++ 的 MotionRpc::Call。
+# 给还没有单独服务的方法用。会改变机器人状态的方法要自己负责安全。
+string method
+# JSON 对象文本，例如 "{}" 或 "{\"fsm_id\":300}"。
+string params_json
+int32 timeout_ms
+---
+# 0 表示传输成功且响应里有 result。result 的业务含义由调用方按方法判断。
+int32 code
+string message
+# 机器人返回的原始 JSON 文本。
+string response_json

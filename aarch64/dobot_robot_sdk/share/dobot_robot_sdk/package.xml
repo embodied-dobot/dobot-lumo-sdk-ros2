@@ -2,7 +2,7 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>dobot_robot_sdk</name>
-  <version>0.1.0</version>
+  <version>0.2.0</version>
   <description>Dobot ROS2 客户端。C++ 动态库和 Python 模块共用同一套话题、服务名和错误码。</description>
   <maintainer email="sdk@dobot.local">dobot</maintainer>
   <license>Apache-2.0</license>

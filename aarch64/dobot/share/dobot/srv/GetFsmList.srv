@@ -1,0 +1,7 @@
+# 查询机器人上全部状态机，包括舞蹈。对应 C++ 的 Motion::GetFsmList。
+int32 timeout_ms
+---
+# 0 成功。非 0 见 dobot_robot_sdk 错误码。
+int32 code
+string message
+FsmInfo[] fsm_list
