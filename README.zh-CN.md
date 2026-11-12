@@ -114,4 +114,4 @@ ROS_DOMAIN_ID=0 ros2 service call /dobot/get_fsm_list dobot/srv/GetFsmList "{tim
 
 ## 许可证
 
-{{LICENSE_NAME}}，详见 [LICENSE](./LICENSE)。
+MIT 许可证，详见 [LICENSE](./LICENSE)。随包分发的第三方组件的声明见 [licenses/](./licenses/)。

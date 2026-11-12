@@ -16,7 +16,7 @@ set(_dobot_robot_examples_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT dobot_robot_examples_FIND_QUIETLY)
-  message(STATUS "Found dobot_robot_examples: 0.1.0 (${dobot_robot_examples_DIR})")
+  message(STATUS "Found dobot_robot_examples: 0.2.0 (${dobot_robot_examples_DIR})")
 endif()
 
 # warn when using a deprecated package

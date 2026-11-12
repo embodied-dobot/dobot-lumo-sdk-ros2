@@ -127,4 +127,4 @@ When reporting a bug, include the architecture, ROS distribution, robot model, s
 
 ## License
 
-{{LICENSE_NAME}}. See [LICENSE](./LICENSE).
+MIT License. See [LICENSE](./LICENSE). Notices for bundled third-party components are in [licenses/](./licenses/).
