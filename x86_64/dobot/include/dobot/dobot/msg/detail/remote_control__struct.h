@@ -1,4 +1,3 @@
-﻿// NOLINT: This file starts with a BOM since it contain non-ASCII characters
 // generated from rosidl_generator_c/resource/idl__struct.h.em
 // with input from dobot:msg/RemoteControl.idl
 // generated code does not contain a copyright notice
@@ -27,13 +26,13 @@ extern "C"
 
 /// Struct defined in msg/RemoteControl in the package dobot.
 /**
-  * 遥控速度意图。话题 rt/remote/control。
-  * 左摇杆，前后/左右。
+  * Remote control velocity intent. Topic rt/remote/control.
+  * Left stick, forward/backward and left/right.
  */
 typedef struct dobot__msg__RemoteControl
 {
   dobot__msg__JoystickValue btn_move;
-  /// 右摇杆，转向。
+  /// Right stick, turning.
   dobot__msg__JoystickValue btn_turn;
 } dobot__msg__RemoteControl;
 

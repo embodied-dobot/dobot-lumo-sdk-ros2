@@ -1,4 +1,3 @@
-﻿// NOLINT: This file starts with a BOM since it contain non-ASCII characters
 // generated from rosidl_generator_c/resource/idl__struct.h.em
 // with input from dobot:msg/LowerState.idl
 // generated code does not contain a copyright notice
@@ -26,12 +25,12 @@ extern "C"
 
 /// Struct defined in msg/LowerState in the package dobot.
 /**
-  * 下肢状态。话题 rt/lower/state。motor_state 长度 15，与底层 IDL 一致。
+  * Lower body state. Topic rt/lower/state. motor_state has length 15, matching the underlying IDL.
  */
 typedef struct dobot__msg__LowerState
 {
   dobot__msg__MotorState motor_state[15];
-  /// 采样时间戳，单位 us，从机器人单调时钟起算。
+  /// Sampling timestamp, in us, counted from the robot monotonic clock.
   uint64_t timestamp_us;
 } dobot__msg__LowerState;
 

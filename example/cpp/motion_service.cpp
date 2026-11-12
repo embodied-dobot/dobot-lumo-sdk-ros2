@@ -27,8 +27,8 @@ using dobot_robot_sdk::ResultKind;
 
 constexpr int kInvalidArgument = static_cast<int>(ErrorCode::kInvalidArgument);
 
-// 运控服务。每个服务把请求转成机器人上的一次 JSON-RPC，对应 C++ SDK 的 dobot::motion::Motion 和 MotionRpc。
-// result 的读法与 C++ SDK 一致：查询只有 -1 算失败；会改变状态的调用 0 算被拒绝、-1 算失败，其余算被接受。
+// Motion services. Each service turns a request into one JSON-RPC call on the robot, matching dobot::motion::Motion and MotionRpc in the C++ SDK.
+// result is interpreted as in the C++ SDK: for queries only -1 is a failure; for state-changing calls 0 means rejected, -1 means failed, and anything else means accepted.
 class MotionService : public rclcpp::Node {
  public:
   MotionService() : Node("dobot_motion_service") {
@@ -53,7 +53,7 @@ class MotionService : public rclcpp::Node {
       if (fsm < 0) {
         response->code = kInvalidArgument;
         response->fsm_id = -1;
-        response->message = "mode 只能是 zero_torque、damping、custom_debug、ready、standing、walking。";
+        response->message = "mode must be one of zero_torque, damping, custom_debug, ready, standing, walking.";
         return;
       }
       response->code = SetFsm(fsm, request->timeout_ms, &response->message);
@@ -63,7 +63,7 @@ class MotionService : public rclcpp::Node {
     Serve<Vel>("/dobot/set_velocity", [this](const Vel::Request::SharedPtr request, Vel::Response::SharedPtr response) {
       if (!std::isfinite(request->vx) || !std::isfinite(request->vy) || !std::isfinite(request->vyaw) || request->duration < 0.0f) {
         response->code = kInvalidArgument;
-        response->message = "速度或 duration 不合法。";
+        response->message = "Invalid velocity or duration.";
         return;
       }
       response->code = SetVel(request->vx, request->vy, request->vyaw, request->duration, request->timeout_ms, nullptr,
@@ -81,7 +81,7 @@ class MotionService : public rclcpp::Node {
         response->code = kInvalidArgument;
         response->fsm_id = -1;
         response->message =
-            "action 只能是 auto_enter_box、auto_exit_box、lie_down、go_prone、stand_up_supine、stand_up_prone。";
+            "action must be one of auto_enter_box, auto_exit_box, lie_down, go_prone, stand_up_supine, stand_up_prone.";
         return;
       }
       response->code = SetFsm(fsm, request->timeout_ms, &response->message);
@@ -91,32 +91,32 @@ class MotionService : public rclcpp::Node {
     Serve<Skill>("/dobot/execute_skill", [this](const Skill::Request::SharedPtr request, Skill::Response::SharedPtr response) {
       if (request->file_path.empty()) {
         response->code = kInvalidArgument;
-        response->message = "file_path 不能为空。它是机器人上技能目录里的文件名。";
+        response->message = "file_path must not be empty. It is a file name in the skill directory on the robot.";
         return;
       }
       const auto reply = Rpc().Call(
           "ExecuteAction", "{\"file_path\":" + dobot_robot_sdk::JsonQuote(request->file_path) + "}", request->timeout_ms);
       std::int32_t number = 0;
-      response->code = InterpretNumber(reply, ResultKind::kCommand, "动作文件执行失败。", &number, &response->message);
+      response->code = InterpretNumber(reply, ResultKind::kCommand, "Failed to run the action file.", &number, &response->message);
     });
 
     Serve<Raw>("/dobot/call_rpc", [this](const Raw::Request::SharedPtr request, Raw::Response::SharedPtr response) {
       if (!dobot_robot_sdk::IsValidMethodName(request->method)) {
         response->code = kInvalidArgument;
-        response->message = "method 只能含字母、数字、下划线和点，且不以数字开头。";
+        response->message = "method may only contain letters, digits, underscores and dots, and must not start with a digit.";
         return;
       }
       const std::string params = request->params_json.empty() ? "{}" : request->params_json;
       if (!dobot_robot_sdk::IsJsonObject(params)) {
         response->code = kInvalidArgument;
-        response->message = "params_json 不是合法的 JSON 对象。";
+        response->message = "params_json is not a valid JSON object.";
         return;
       }
       const auto reply = Rpc().Call(request->method, params, request->timeout_ms);
       response->response_json = reply.raw;
       if (!reply.transport_ok) {
         response->code = static_cast<int>(ErrorCode::kRpc);
-        response->message = reply.message.empty() ? "RPC 没有响应。" : reply.message;
+        response->message = reply.message.empty() ? "No response to the RPC." : reply.message;
         return;
       }
       response->code = 0;
@@ -138,7 +138,7 @@ class MotionService : public rclcpp::Node {
   }
 
  private:
-  // create_service 返回的是服务的唯一持有者，丢掉它服务就立刻销毁。必须存下来，直到节点结束。
+  // create_service returns the sole owner of the service; dropping it destroys the service immediately. Keep it stored until the node shuts down.
   template <typename Srv, typename Callback>
   void Serve(const std::string& name, Callback&& callback) {
     services_.push_back(create_service<Srv>(name, std::forward<Callback>(callback)));
@@ -146,11 +146,11 @@ class MotionService : public rclcpp::Node {
 
   dobot_robot_sdk::JsonRpcClient Rpc() const { return dobot_robot_sdk::JsonRpcClient(ip_, port_); }
 
-  // 切换状态机。成功只表示切换被接受，不表示动作做完。
+  // Switch the state machine (FSM). Success only means the switch was accepted, not that the motion has finished.
   int SetFsm(int fsm, int timeout_ms, std::string* message) const {
     const auto reply = Rpc().Call("SetFsmId", "{\"fsm_id\":" + std::to_string(fsm) + "}", timeout_ms);
     std::int32_t number = 0;
-    return InterpretNumber(reply, ResultKind::kCommand, "状态机切换失败。", &number, message);
+    return InterpretNumber(reply, ResultKind::kCommand, "FSM switch failed.", &number, message);
   }
 
   int SetVel(float vx, float vy, float vyaw, float duration, int timeout_ms, std::int32_t* number,
@@ -159,7 +159,7 @@ class MotionService : public rclcpp::Node {
     params << "{\"vx\":" << vx << ",\"vy\":" << vy << ",\"vyaw\":" << vyaw << ",\"duration\":" << duration << "}";
     const auto reply = Rpc().Call("SetVel", params.str(), timeout_ms);
     std::int32_t ignored = 0;
-    return InterpretNumber(reply, ResultKind::kCommand, "速度指令设置失败。", number != nullptr ? number : &ignored,
+    return InterpretNumber(reply, ResultKind::kCommand, "Failed to set the velocity command.", number != nullptr ? number : &ignored,
                            message);
   }
 
@@ -173,7 +173,7 @@ class MotionService : public rclcpp::Node {
     if (goal->command == "play_dance") {
       if (fsm < 350 || fsm > 400) {
         result->code = kInvalidArgument;
-        result->message = "舞蹈编号要在 350 到 400。";
+        result->message = "Dance number must be between 350 and 400.";
         result->fsm_id = -1;
         handle->abort(result);
         return;
@@ -182,7 +182,7 @@ class MotionService : public rclcpp::Node {
       fsm = dobot_robot_sdk::ModeToFsmId(goal->mode);
       if (fsm < 0) {
         result->code = kInvalidArgument;
-        result->message = "mode 不合法。";
+        result->message = "Invalid mode.";
         result->fsm_id = -1;
         handle->abort(result);
         return;
@@ -199,7 +199,7 @@ class MotionService : public rclcpp::Node {
       return;
     } else {
       result->code = kInvalidArgument;
-      result->message = "command 只能是 set_mode、set_velocity、play_dance。";
+      result->message = "command must be one of set_mode, set_velocity, play_dance.";
       result->fsm_id = -1;
       handle->abort(result);
       return;

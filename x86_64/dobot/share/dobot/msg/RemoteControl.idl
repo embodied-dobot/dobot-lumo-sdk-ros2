@@ -7,13 +7,13 @@
 module dobot {
   module msg {
     @verbatim (language="comment", text=
-      "遥控速度意图。话题 rt/remote/control。" "\n"
-      "左摇杆，前后/左右。")
+      "Remote control velocity intent. Topic rt/remote/control." "\n"
+      "Left stick, forward/backward and left/right.")
     struct RemoteControl {
       dobot::msg::JoystickValue btn_move;
 
       @verbatim (language="comment", text=
-        "右摇杆，转向。")
+        "Right stick, turning.")
       dobot::msg::JoystickValue btn_turn;
     };
   };

@@ -4,7 +4,7 @@ use serde::{Deserialize, Serialize};
 
 
 // Corresponds to dobot__msg__FsmInfo
-/// 一个运控状态机。对应 C++ 的 dobot::motion::FsmInfo。
+/// One motion control FSM. Corresponds to C++ dobot::motion::FsmInfo.
 
 #[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
 #[derive(Clone, Debug, PartialEq, PartialOrd)]
@@ -24,7 +24,7 @@ pub struct FsmInfo {
     #[allow(missing_docs)]
     pub name: std::string::String,
 
-    /// 以下四项只在 is_dance 为 true 时有内容，否则是空串或 0。
+    /// The following four fields are populated only when is_dance is true; otherwise they are an empty string or 0.
     pub dance_name: std::string::String,
 
 
@@ -101,8 +101,8 @@ impl rosidl_runtime_rs::Message for FsmInfo {
 
 
 // Corresponds to dobot__msg__MotorState
-/// 单个关节的伺服状态。字段顺序与 dobot::msg::dds_::MotorState_ 一致。
-/// 电机模式，原始协议值，范围 0–255。
+/// Servo state of a single joint. Field order matches dobot::msg::dds_::MotorState_.
+/// Motor mode, raw protocol value, range 0-255.
 
 #[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
 #[derive(Clone, Debug, PartialEq, PartialOrd)]
@@ -112,49 +112,49 @@ pub struct MotorState {
     #[allow(missing_docs)]
     pub mode: u8,
 
-    /// 关节角位置，单位 rad。
+    /// Joint position, in rad.
     pub q: f32,
 
-    /// 关节角速度，单位 rad/s。
+    /// Joint velocity, in rad/s.
     pub dq: f32,
 
-    /// 关节角加速度，单位 rad/s^2。
+    /// Joint acceleration, in rad/s^2.
     pub ddq: f32,
 
-    /// 估计力矩，单位 N·m。
+    /// Estimated torque, in N·m.
     pub tau_est: f32,
 
-    /// 力矩指令回读，单位 N·m。
+    /// Torque command readback, in N·m.
     pub tau_cmd: f32,
 
-    /// 电流反馈，原始协议值。
+    /// Current feedback, raw protocol value.
     pub current_feedback: f32,
 
-    /// 电流指令，原始协议值。
+    /// Current command, raw protocol value.
     pub current_cmd: f32,
 
-    /// 原始角位置，单位 rad。
+    /// Raw position, in rad.
     pub q_raw: f32,
 
-    /// 原始角速度，单位 rad/s。
+    /// Raw velocity, in rad/s.
     pub dq_raw: f32,
 
-    /// 原始角加速度，单位 rad/s^2。
+    /// Raw acceleration, in rad/s^2.
     pub ddq_raw: f32,
 
-    /// 原始力矩，单位 N·m。
+    /// Raw torque, in N·m.
     pub tau_raw: f32,
 
-    /// 伺服控制板温度原始值，范围 0–255。
+    /// Raw servo driver board temperature, range 0-255.
     pub mcu_temp: u8,
 
-    /// MOS 温度原始值，范围 0–255。
+    /// Raw MOS temperature, range 0-255.
     pub mos_temp: u8,
 
-    /// 电机温度原始值，范围 0–255。
+    /// Raw motor temperature, range 0-255.
     pub motor_temp: u8,
 
-    /// 母线电压原始值，范围 0–255，缩放由伺服协议定义。
+    /// Raw bus voltage, range 0-255; scaling is defined by the servo protocol.
     pub bus_voltage: u8,
 
 }
@@ -235,8 +235,8 @@ impl rosidl_runtime_rs::Message for MotorState {
 
 
 // Corresponds to dobot__msg__MotorCmd
-/// 单个关节的伺服命令。字段顺序与 dobot::msg::dds_::MotorCmd_ 一致。
-/// 电机模式，原始协议值，范围 0–255。
+/// Servo command of a single joint. Field order matches dobot::msg::dds_::MotorCmd_.
+/// Motor mode, raw protocol value, range 0-255.
 
 #[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
 #[derive(Clone, Debug, PartialEq, PartialOrd)]
@@ -246,19 +246,19 @@ pub struct MotorCmd {
     #[allow(missing_docs)]
     pub mode: u8,
 
-    /// 目标角位置，单位 rad。
+    /// Target position, in rad.
     pub q: f32,
 
-    /// 目标角速度，单位 rad/s。
+    /// Target velocity, in rad/s.
     pub dq: f32,
 
-    /// 前馈力矩，单位 N·m。
+    /// Feedforward torque, in N·m.
     pub tau: f32,
 
-    /// 位置比例增益。负值无物理意义，SDK 会拒绝。
+    /// Position proportional gain. Negative values are physically meaningless and rejected by the SDK.
     pub kp: f32,
 
-    /// 速度微分增益。负值无物理意义，SDK 会拒绝。
+    /// Velocity derivative gain. Negative values are physically meaningless and rejected by the SDK.
     pub kd: f32,
 
 }
@@ -309,7 +309,7 @@ impl rosidl_runtime_rs::Message for MotorCmd {
 
 
 // Corresponds to dobot__msg__JoystickValue
-/// 摇杆分量。x、y 为原始键值，常见范围 -1.0–1.0。
+/// Joystick components. x and y are raw key values, typically in the range -1.0 to 1.0.
 
 #[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
 #[derive(Clone, Debug, PartialEq, PartialOrd)]
@@ -360,7 +360,7 @@ impl rosidl_runtime_rs::Message for JoystickValue {
 
 
 // Corresponds to dobot__msg__LowerState
-/// 下肢状态。话题 rt/lower/state。motor_state 长度 15，与底层 IDL 一致。
+/// Lower body state. Topic rt/lower/state. motor_state has length 15, matching the underlying IDL.
 
 #[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
 #[derive(Clone, Debug, PartialEq, PartialOrd)]
@@ -370,7 +370,7 @@ pub struct LowerState {
     #[allow(missing_docs)]
     pub motor_state: [super::msg::MotorState; 15],
 
-    /// 采样时间戳，单位 us，从机器人单调时钟起算。
+    /// Sampling timestamp, in us, counted from the robot monotonic clock.
     pub timestamp_us: u64,
 
 }
@@ -416,7 +416,7 @@ impl rosidl_runtime_rs::Message for LowerState {
 
 
 // Corresponds to dobot__msg__LowerCmd
-/// 下肢命令。话题 rt/lower/cmd。motor_cmd 长度 12，与底层 IDL 一致。
+/// Lower body command. Topic rt/lower/cmd. motor_cmd has length 12, matching the underlying IDL.
 
 #[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
 #[derive(Clone, Debug, PartialEq, PartialOrd)]
@@ -466,8 +466,8 @@ impl rosidl_runtime_rs::Message for LowerCmd {
 
 
 // Corresponds to dobot__msg__UpperState
-/// 上肢状态。话题 rt/upper/state。
-/// 产品型号，定长 16 字节，不足补 0。与 IDL char 对应。
+/// Upper body state. Topic rt/upper/state.
+/// Product model, fixed 16 bytes, zero-padded. Corresponds to IDL char.
 
 #[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
 #[derive(Clone, Debug, PartialEq, PartialOrd)]
@@ -477,13 +477,13 @@ pub struct UpperState {
     #[allow(missing_docs)]
     pub robot_type: [u8; 16],
 
-    /// true 表示上肢当前由外部控制。
+    /// true means the upper body is currently under external control.
     pub is_upper_control: bool,
 
-    /// 上肢电机状态，长度 18。
+    /// Upper body motor states, length 18.
     pub motor_state: [super::msg::MotorState; 18],
 
-    /// 采样时间戳，单位 us。
+    /// Sampling timestamp, in us.
     pub timestamp_us: u64,
 
 }
@@ -535,7 +535,7 @@ impl rosidl_runtime_rs::Message for UpperState {
 
 
 // Corresponds to dobot__msg__UpperCmd
-/// 上肢命令。话题 rt/upper/cmd。motor_cmd 长度 18，与底层 IDL 一致。
+/// Upper body command. Topic rt/upper/cmd. motor_cmd has length 18, matching the underlying IDL.
 
 #[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
 #[derive(Clone, Debug, PartialEq, PartialOrd)]
@@ -585,9 +585,9 @@ impl rosidl_runtime_rs::Message for UpperCmd {
 
 
 // Corresponds to dobot__msg__IMUState
-/// IMU 状态。话题 rt/pelvis/imu/data 与 rt/torso/imu/data 共用本类型。
-/// 同一次会话只应订阅其中一路，与 C++ SDK 的约束一致。
-/// IMU 编号，范围 0–4294967295。
+/// IMU state. Topics rt/pelvis/imu/data and rt/torso/imu/data share this type.
+/// Subscribe to only one of them per session, consistent with the C++ SDK constraint.
+/// IMU id, range 0-4294967295.
 
 #[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
 #[derive(Clone, Debug, PartialEq, PartialOrd)]
@@ -597,22 +597,22 @@ pub struct IMUState {
     #[allow(missing_docs)]
     pub imu_id: u32,
 
-    /// 四元数，4 个数，顺序与底层 IDL 一致。
+    /// Quaternion, 4 values, order matches the underlying IDL.
     pub quaternion: [f32; 4],
 
-    /// 三轴陀螺仪，顺序与底层 IDL 一致，单位通常为 rad/s。
+    /// 3-axis gyroscope, order matches the underlying IDL, usually in rad/s.
     pub gyroscope: [f32; 3],
 
-    /// 三轴加速度，顺序与底层 IDL 一致，单位通常为 m/s^2。
+    /// 3-axis acceleration, order matches the underlying IDL, usually in m/s^2.
     pub accelerometer: [f32; 3],
 
-    /// 欧拉角，顺序滚转、俯仰、偏航，单位 rad。
+    /// Euler angles in the order roll, pitch, yaw, in rad.
     pub rpy: [f32; 3],
 
-    /// 温度原始值，范围 0–255。
+    /// Raw temperature, range 0-255.
     pub temperature: u8,
 
-    /// 采样时间戳，单位 us。
+    /// Sampling timestamp, in us.
     pub timestamp_us: u64,
 
 }
@@ -666,9 +666,9 @@ impl rosidl_runtime_rs::Message for IMUState {
 
 
 // Corresponds to dobot__msg__StandingControl
-/// 站立微调。话题 rt/stand/cmd。仅 Mini 站立模式（状态机 300）接受。
-/// 三个目标每次一起生效，腰部俯仰和横滚不在本消息里。
-/// 头部偏航绝对目标，单位 rad。
+/// Standing fine adjustment. Topic rt/stand/cmd. Accepted only in Mini standing mode (FSM 300).
+/// All three targets take effect together; waist pitch and roll are not part of this message.
+/// Absolute head yaw target, in rad.
 
 #[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
 #[derive(Clone, Debug, PartialEq, PartialOrd)]
@@ -678,10 +678,10 @@ pub struct StandingControl {
     #[allow(missing_docs)]
     pub head_yaw: f32,
 
-    /// 腰部偏航相对默认姿态的偏移，单位 rad。
+    /// Waist yaw offset relative to the default posture, in rad.
     pub waist_yaw: f32,
 
-    /// 身体高度目标，单位 m。0 表示恢复默认站立高度。
+    /// Body height target, in m. 0 restores the default standing height.
     pub body_height: f32,
 
 }
@@ -723,8 +723,8 @@ impl rosidl_runtime_rs::Message for StandingControl {
 
 
 // Corresponds to dobot__msg__SetFsmId
-/// 运控状态机话题。话题 rt/set/fsm/id。技能开始和结束时底层会发布。
-/// 状态机编号。0 也是合法编号。范围 0–65535。
+/// Motion control FSM topic. Topic rt/set/fsm/id. Published by the lower layer when a skill starts and ends.
+/// FSM id. 0 is also a valid id. Range 0-65535.
 
 #[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
 #[derive(Clone, Debug, PartialEq, PartialOrd)]
@@ -734,7 +734,7 @@ pub struct SetFsmId {
     #[allow(missing_docs)]
     pub id: u16,
 
-    /// 当前正在执行的动作名。空字符串表示没有动作。
+    /// Name of the action currently running. Empty string means no action.
     pub current_action: std::string::String,
 
 }
@@ -773,8 +773,8 @@ impl rosidl_runtime_rs::Message for SetFsmId {
 
 
 // Corresponds to dobot__msg__EnableMotors
-/// 电机使能。话题 rt/enable/motors。每一位对应一路电机，true 为使能。
-/// 长度 30，与底层 IDL 一致。
+/// Motor enable. Topic rt/enable/motors. Each bit maps to one motor; true means enabled.
+/// Length 30, matching the underlying IDL.
 
 #[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
 #[derive(Clone, Debug, PartialEq, PartialOrd)]
@@ -817,8 +817,8 @@ impl rosidl_runtime_rs::Message for EnableMotors {
 
 
 // Corresponds to dobot__msg__ClearErrors
-/// 清错。话题 rt/clear/errors。
-/// 调用方自增的消息编号，用于区分重复请求。
+/// Clear errors. Topic rt/clear/errors.
+/// Message id incremented by the caller, used to distinguish repeated requests.
 
 #[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
 #[derive(Clone, Debug, PartialEq, PartialOrd)]
@@ -861,8 +861,8 @@ impl rosidl_runtime_rs::Message for ClearErrors {
 
 
 // Corresponds to dobot__msg__GoHome
-/// 回零。话题 rt/go/home。每一位对应一路电机，true 表示该路参与回零。
-/// 长度 30，与底层 IDL 一致。
+/// Go home. Topic rt/go/home. Each bit maps to one motor; true means that motor takes part in homing.
+/// Length 30, matching the underlying IDL.
 
 #[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
 #[derive(Clone, Debug, PartialEq, PartialOrd)]
@@ -905,8 +905,8 @@ impl rosidl_runtime_rs::Message for GoHome {
 
 
 // Corresponds to dobot__msg__SetCalibrationFlag
-/// 标定标志。话题 rt/set/calibration/flag。每一位对应一路关节。
-/// 长度 30，与底层 IDL 一致。
+/// Calibration flag. Topic rt/set/calibration/flag. Each bit maps to one joint.
+/// Length 30, matching the underlying IDL.
 
 #[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
 #[derive(Clone, Debug, PartialEq, PartialOrd)]
@@ -949,8 +949,8 @@ impl rosidl_runtime_rs::Message for SetCalibrationFlag {
 
 
 // Corresponds to dobot__msg__RemoteControl
-/// 遥控速度意图。话题 rt/remote/control。
-/// 左摇杆，前后/左右。
+/// Remote control velocity intent. Topic rt/remote/control.
+/// Left stick, forward/backward and left/right.
 
 #[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
 #[derive(Clone, Debug, PartialEq, PartialOrd)]
@@ -960,7 +960,7 @@ pub struct RemoteControl {
     #[allow(missing_docs)]
     pub btn_move: super::msg::JoystickValue,
 
-    /// 右摇杆，转向。
+    /// Right stick, turning.
     pub btn_turn: super::msg::JoystickValue,
 
 }
@@ -999,8 +999,8 @@ impl rosidl_runtime_rs::Message for RemoteControl {
 
 
 // Corresponds to dobot__msg__GamepadState
-/// 手柄状态。话题 rt/gamepad/state。
-/// 协议头。
+/// Gamepad state. Topic rt/gamepad/state.
+/// Protocol header.
 
 #[cfg_attr(feature = "serde", derive(Deserialize, Serialize))]
 #[derive(Clone, Debug, PartialEq, PartialOrd)]
@@ -1010,23 +1010,23 @@ pub struct GamepadState {
     #[allow(missing_docs)]
     pub head: u16,
 
-    /// 按键位。bit0 R1，bit1 L1，bit2 start，bit3 select，bit4 R2，bit5 L2，bit6 F1，bit7 F2，
-    /// bit8 A，bit9 B，bit10 X，bit11 Y，bit12 up，bit13 right，bit14 down，bit15 left。
+    /// Key bits. bit0 R1, bit1 L1, bit2 start, bit3 select, bit4 R2, bit5 L2, bit6 F1, bit7 F2,
+    /// bit8 A, bit9 B, bit10 X, bit11 Y, bit12 up, bit13 right, bit14 down, bit15 left.
     pub btn_state: u16,
 
-    /// 左摇杆 x，常见范围 -1.0–1.0。
+    /// Left stick x, typically -1.0 to 1.0.
     pub lx: f32,
 
-    /// 左摇杆 y，常见范围 -1.0–1.0。
+    /// Left stick y, typically -1.0 to 1.0.
     pub ly: f32,
 
-    /// 右摇杆 x，常见范围 -1.0–1.0。
+    /// Right stick x, typically -1.0 to 1.0.
     pub rx: f32,
 
-    /// 右摇杆 y，常见范围 -1.0–1.0。
+    /// Right stick y, typically -1.0 to 1.0.
     pub ry: f32,
 
-    /// 采样时间戳，单位 us。
+    /// Sampling timestamp, in us.
     pub timestamp_us: u64,
 
 }

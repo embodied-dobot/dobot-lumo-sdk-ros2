@@ -1,4 +1,3 @@
-﻿// NOLINT: This file starts with a BOM since it contain non-ASCII characters
 // generated from rosidl_generator_c/resource/idl__struct.h.em
 // with input from dobot:msg/FsmInfo.idl
 // generated code does not contain a copyright notice
@@ -28,14 +27,14 @@ extern "C"
 
 /// Struct defined in msg/FsmInfo in the package dobot.
 /**
-  * 一个运控状态机。对应 C++ 的 dobot::motion::FsmInfo。
+  * One motion control FSM. Corresponds to C++ dobot::motion::FsmInfo.
  */
 typedef struct dobot__msg__FsmInfo
 {
   int32_t fsm_id;
   bool is_dance;
   rosidl_runtime_c__String name;
-  /// 以下四项只在 is_dance 为 true 时有内容，否则是空串或 0。
+  /// The following four fields are populated only when is_dance is true; otherwise they are an empty string or 0.
   rosidl_runtime_c__String dance_name;
   rosidl_runtime_c__String model_file;
   int32_t motion_loop_length;

@@ -1,3 +1,3 @@
-# 摇杆分量。x、y 为原始键值，常见范围 -1.0–1.0。
+# Joystick components. x and y are raw key values, typically in the range -1.0 to 1.0.
 float32 x
 float32 y

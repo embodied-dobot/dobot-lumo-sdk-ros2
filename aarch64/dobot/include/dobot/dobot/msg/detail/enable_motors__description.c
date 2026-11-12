@@ -66,8 +66,8 @@ dobot__msg__EnableMotors__get_type_description(
 }
 
 static char toplevel_type_raw_source[] =
-  "# \\xe7\\x94\\xb5\\xe6\\x9c\\xba\\xe4\\xbd\\xbf\\xe8\\x83\\xbd\\xe3\\x80\\x82\\xe8\\xaf\\x9d\\xe9\\xa2\\x98 rt/enable/motors\\xe3\\x80\\x82\\xe6\\xaf\\x8f\\xe4\\xb8\\x80\\xe4\\xbd\\x8d\\xe5\\xaf\\xb9\\xe5\\xba\\x94\\xe4\\xb8\\x80\\xe8\\xb7\\xaf\\xe7\\x94\\xb5\\xe6\\x9c\\xba\\xef\\xbc\\x8ctrue \\xe4\\xb8\\xba\\xe4\\xbd\\xbf\\xe8\\x83\\xbd\\xe3\\x80\\x82\n"
-  "# \\xe9\\x95\\xbf\\xe5\\xba\\xa6 30\\xef\\xbc\\x8c\\xe4\\xb8\\x8e\\xe5\\xba\\x95\\xe5\\xb1\\x82 IDL \\xe4\\xb8\\x80\\xe8\\x87\\xb4\\xe3\\x80\\x82\n"
+  "# Motor enable. Topic rt/enable/motors. Each bit maps to one motor; true means enabled.\n"
+  "# Length 30, matching the underlying IDL.\n"
   "bool[30] flag";
 
 static char msg_encoding[] = "msg";
@@ -82,7 +82,7 @@ dobot__msg__EnableMotors__get_individual_type_description_source(
   static const rosidl_runtime_c__type_description__TypeSource source = {
     {dobot__msg__EnableMotors__TYPE_NAME, 22, 22},
     {msg_encoding, 3, 3},
-    {toplevel_type_raw_source, 81, 81},
+    {toplevel_type_raw_source, 144, 144},
   };
   return &source;
 }

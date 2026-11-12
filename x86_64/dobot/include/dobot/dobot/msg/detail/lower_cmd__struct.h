@@ -1,4 +1,3 @@
-﻿// NOLINT: This file starts with a BOM since it contain non-ASCII characters
 // generated from rosidl_generator_c/resource/idl__struct.h.em
 // with input from dobot:msg/LowerCmd.idl
 // generated code does not contain a copyright notice
@@ -26,7 +25,7 @@ extern "C"
 
 /// Struct defined in msg/LowerCmd in the package dobot.
 /**
-  * 下肢命令。话题 rt/lower/cmd。motor_cmd 长度 12，与底层 IDL 一致。
+  * Lower body command. Topic rt/lower/cmd. motor_cmd has length 12, matching the underlying IDL.
  */
 typedef struct dobot__msg__LowerCmd
 {

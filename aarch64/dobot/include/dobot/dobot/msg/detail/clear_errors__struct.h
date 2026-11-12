@@ -1,4 +1,3 @@
-﻿// NOLINT: This file starts with a BOM since it contain non-ASCII characters
 // generated from rosidl_generator_c/resource/idl__struct.h.em
 // with input from dobot:msg/ClearErrors.idl
 // generated code does not contain a copyright notice
@@ -22,8 +21,8 @@ extern "C"
 
 /// Struct defined in msg/ClearErrors in the package dobot.
 /**
-  * 清错。话题 rt/clear/errors。
-  * 调用方自增的消息编号，用于区分重复请求。
+  * Clear errors. Topic rt/clear/errors.
+  * Message id incremented by the caller, used to distinguish repeated requests.
  */
 typedef struct dobot__msg__ClearErrors
 {

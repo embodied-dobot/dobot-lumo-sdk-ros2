@@ -1,4 +1,3 @@
-﻿// NOLINT: This file starts with a BOM since it contain non-ASCII characters
 // generated from rosidl_generator_c/resource/idl__struct.h.em
 // with input from dobot:msg/JoystickValue.idl
 // generated code does not contain a copyright notice
@@ -22,7 +21,7 @@ extern "C"
 
 /// Struct defined in msg/JoystickValue in the package dobot.
 /**
-  * 摇杆分量。x、y 为原始键值，常见范围 -1.0–1.0。
+  * Joystick components. x and y are raw key values, typically in the range -1.0 to 1.0.
  */
 typedef struct dobot__msg__JoystickValue
 {

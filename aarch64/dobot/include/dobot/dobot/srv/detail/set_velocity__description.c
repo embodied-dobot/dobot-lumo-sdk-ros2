@@ -386,14 +386,14 @@ dobot__srv__SetVelocity_Event__get_type_description(
 }
 
 static char toplevel_type_raw_source[] =
-  "# \\xe4\\xb8\\x8b\\xe5\\x8f\\x91\\xe5\\xba\\x95\\xe7\\x9b\\x98\\xe9\\x80\\x9f\\xe5\\xba\\xa6\\xe3\\x80\\x82\\xe8\\xb6\\x85\\xe6\\x97\\xb6\\xe5\\x90\\x8e\\xe8\\xbf\\x90\\xe6\\x8e\\xa7\\xe8\\x87\\xaa\\xe5\\xb7\\xb1\\xe5\\x81\\x9c\\xe3\\x80\\x82\\xe5\\x81\\x9c\\xe6\\x9c\\xba\\xe7\\x94\\xa8 vx=vy=vyaw=0\\xe3\\x80\\x82\n"
-  "# \\xe5\\x90\\x91\\xe5\\x89\\x8d\\xe4\\xb8\\xba\\xe6\\xad\\xa3\\xef\\xbc\\x8c\\xe5\\x8d\\x95\\xe4\\xbd\\x8d m/s\\xe3\\x80\\x82\n"
+  "# Send a base velocity command. Motion control stops on its own after the timeout. To stop, use vx=vy=vyaw=0.\n"
+  "# Positive is forward, in m/s.\n"
   "float32 vx\n"
-  "# \\xe5\\x90\\x91\\xe5\\xb7\\xa6\\xe4\\xb8\\xba\\xe6\\xad\\xa3\\xef\\xbc\\x8c\\xe5\\x8d\\x95\\xe4\\xbd\\x8d m/s\\xe3\\x80\\x82\n"
+  "# Positive is left, in m/s.\n"
   "float32 vy\n"
-  "# \\xe9\\x80\\x86\\xe6\\x97\\xb6\\xe9\\x92\\x88\\xe4\\xb8\\xba\\xe6\\xad\\xa3\\xef\\xbc\\x8c\\xe5\\x8d\\x95\\xe4\\xbd\\x8d rad/s\\xe3\\x80\\x82\n"
+  "# Positive is counter-clockwise, in rad/s.\n"
   "float32 vyaw\n"
-  "# \\xe4\\xbf\\x9d\\xe6\\x8c\\x81\\xe6\\x97\\xb6\\xe9\\x97\\xb4\\xef\\xbc\\x8c\\xe5\\x8d\\x95\\xe4\\xbd\\x8d s\\xe3\\x80\\x82\\xe5\\xb0\\x8f\\xe4\\xba\\x8e 0 \\xe4\\xbc\\x9a\\xe8\\xa2\\xab SDK \\xe6\\x8b\\x92\\xe7\\xbb\\x9d\\xe3\\x80\\x82\n"
+  "# Hold duration, in s. Values below 0 are rejected by the SDK.\n"
   "float32 duration\n"
   "int32 timeout_ms\n"
   "---\n"
@@ -413,7 +413,7 @@ dobot__srv__SetVelocity__get_individual_type_description_source(
   static const rosidl_runtime_c__type_description__TypeSource source = {
     {dobot__srv__SetVelocity__TYPE_NAME, 21, 21},
     {srv_encoding, 3, 3},
-    {toplevel_type_raw_source, 211, 211},
+    {toplevel_type_raw_source, 374, 374},
   };
   return &source;
 }

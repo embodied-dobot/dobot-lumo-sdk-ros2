@@ -1,4 +1,4 @@
-# 下肢状态。话题 rt/lower/state。motor_state 长度 15，与底层 IDL 一致。
+# Lower body state. Topic rt/lower/state. motor_state has length 15, matching the underlying IDL.
 MotorState[15] motor_state
-# 采样时间戳，单位 us，从机器人单调时钟起算。
+# Sampling timestamp, in us, counted from the robot monotonic clock.
 uint64 timestamp_us

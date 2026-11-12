@@ -3,7 +3,7 @@
 <package format="3">
   <name>dobot_robot_examples</name>
   <version>0.1.0</version>
-  <description>Dobot ROS2 示例：订阅、发令、闭环，以及把 JSON-RPC 暴露成服务的 motion_service。</description>
+  <description>Dobot ROS 2 examples: subscribing, publishing commands, closed loop, and motion_service, which exposes JSON-RPC as ROS services.</description>
   <maintainer email="sdk@dobot.local">dobot</maintainer>
   <license>Apache-2.0</license>
 

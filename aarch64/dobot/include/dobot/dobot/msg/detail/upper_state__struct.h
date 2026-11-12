@@ -1,4 +1,3 @@
-﻿// NOLINT: This file starts with a BOM since it contain non-ASCII characters
 // generated from rosidl_generator_c/resource/idl__struct.h.em
 // with input from dobot:msg/UpperState.idl
 // generated code does not contain a copyright notice
@@ -26,17 +25,17 @@ extern "C"
 
 /// Struct defined in msg/UpperState in the package dobot.
 /**
-  * 上肢状态。话题 rt/upper/state。
-  * 产品型号，定长 16 字节，不足补 0。与 IDL char 对应。
+  * Upper body state. Topic rt/upper/state.
+  * Product model, fixed 16 bytes, zero-padded. Corresponds to IDL char.
  */
 typedef struct dobot__msg__UpperState
 {
   uint8_t robot_type[16];
-  /// true 表示上肢当前由外部控制。
+  /// true means the upper body is currently under external control.
   bool is_upper_control;
-  /// 上肢电机状态，长度 18。
+  /// Upper body motor states, length 18.
   dobot__msg__MotorState motor_state[18];
-  /// 采样时间戳，单位 us。
+  /// Sampling timestamp, in us.
   uint64_t timestamp_us;
 } dobot__msg__UpperState;
 

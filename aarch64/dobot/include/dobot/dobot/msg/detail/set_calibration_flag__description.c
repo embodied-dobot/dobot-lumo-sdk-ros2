@@ -66,8 +66,8 @@ dobot__msg__SetCalibrationFlag__get_type_description(
 }
 
 static char toplevel_type_raw_source[] =
-  "# \\xe6\\xa0\\x87\\xe5\\xae\\x9a\\xe6\\xa0\\x87\\xe5\\xbf\\x97\\xe3\\x80\\x82\\xe8\\xaf\\x9d\\xe9\\xa2\\x98 rt/set/calibration/flag\\xe3\\x80\\x82\\xe6\\xaf\\x8f\\xe4\\xb8\\x80\\xe4\\xbd\\x8d\\xe5\\xaf\\xb9\\xe5\\xba\\x94\\xe4\\xb8\\x80\\xe8\\xb7\\xaf\\xe5\\x85\\xb3\\xe8\\x8a\\x82\\xe3\\x80\\x82\n"
-  "# \\xe9\\x95\\xbf\\xe5\\xba\\xa6 30\\xef\\xbc\\x8c\\xe4\\xb8\\x8e\\xe5\\xba\\x95\\xe5\\xb1\\x82 IDL \\xe4\\xb8\\x80\\xe8\\x87\\xb4\\xe3\\x80\\x82\n"
+  "# Calibration flag. Topic rt/set/calibration/flag. Each bit maps to one joint.\n"
+  "# Length 30, matching the underlying IDL.\n"
   "bool[30] flag";
 
 static char msg_encoding[] = "msg";
@@ -82,7 +82,7 @@ dobot__msg__SetCalibrationFlag__get_individual_type_description_source(
   static const rosidl_runtime_c__type_description__TypeSource source = {
     {dobot__msg__SetCalibrationFlag__TYPE_NAME, 28, 28},
     {msg_encoding, 3, 3},
-    {toplevel_type_raw_source, 79, 79},
+    {toplevel_type_raw_source, 135, 135},
   };
   return &source;
 }

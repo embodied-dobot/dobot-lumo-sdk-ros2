@@ -364,16 +364,16 @@ dobot__srv__SetRobotMode_Event__get_type_description(
 }
 
 static char toplevel_type_raw_source[] =
-  "# \\xe5\\x88\\x87\\xe6\\x8d\\xa2\\xe8\\xbf\\x90\\xe6\\x8e\\xa7\\xe6\\xa8\\xa1\\xe5\\xbc\\x8f\\xe3\\x80\\x82mode \\xe5\\x8f\\x96\\xe5\\x80\\xbc\\xef\\xbc\\x9azero_torque damping custom_debug ready standing walking\\xe3\\x80\\x82\n"
-  "# \\xe5\\xaf\\xb9\\xe5\\xba\\x94\\xe7\\x8a\\xb6\\xe6\\x80\\x81\\xe6\\x9c\\xba\\xe7\\xbc\\x96\\xe5\\x8f\\xb7 0 / 1 / 2 / 100 / 300 / 304\\xe3\\x80\\x82\n"
+  "# Switch the motion control mode. mode values: zero_torque damping custom_debug ready standing walking.\n"
+  "# Corresponding FSM ids: 0 / 1 / 2 / 100 / 300 / 304.\n"
   "string mode\n"
-  "# \\xe6\\x9c\\xac\\xe6\\xac\\xa1\\xe8\\xb0\\x83\\xe7\\x94\\xa8\\xe7\\x9a\\x84\\xe8\\xb6\\x85\\xe6\\x97\\xb6\\xef\\xbc\\x8c\\xe5\\x8d\\x95\\xe4\\xbd\\x8d ms\\xef\\xbc\\x8c\\xe8\\x8c\\x83\\xe5\\x9b\\xb4 1\\xe2\\x80\\x9360000\\xe3\\x80\\x82\n"
+  "# Timeout of this call, in ms, range 1-60000.\n"
   "int32 timeout_ms\n"
   "---\n"
-  "# 0 \\xe6\\x88\\x90\\xe5\\x8a\\x9f\\xe3\\x80\\x82\\xe9\\x9d\\x9e 0 \\xe8\\xa7\\x81 dobot_robot_sdk \\xe9\\x94\\x99\\xe8\\xaf\\xaf\\xe7\\xa0\\x81\\xe3\\x80\\x82\n"
+  "# 0 on success. For non-zero values see the dobot_robot_sdk error codes.\n"
   "int32 code\n"
   "string message\n"
-  "# \\xe5\\xb7\\xb2\\xe4\\xb8\\x8b\\xe5\\x8f\\x91\\xe7\\x9a\\x84\\xe7\\x8a\\xb6\\xe6\\x80\\x81\\xe6\\x9c\\xba\\xe7\\xbc\\x96\\xe5\\x8f\\xb7\\xe3\\x80\\x82\\xe5\\xa4\\xb1\\xe8\\xb4\\xa5\\xe6\\x97\\xb6\\xe4\\xb8\\xba -1\\xe3\\x80\\x82\n"
+  "# FSM id that was sent. -1 on failure.\n"
   "int32 fsm_id";
 
 static char srv_encoding[] = "srv";
@@ -389,7 +389,7 @@ dobot__srv__SetRobotMode__get_individual_type_description_source(
   static const rosidl_runtime_c__type_description__TypeSource source = {
     {dobot__srv__SetRobotMode__TYPE_NAME, 22, 22},
     {srv_encoding, 3, 3},
-    {toplevel_type_raw_source, 268, 268},
+    {toplevel_type_raw_source, 388, 388},
   };
   return &source;
 }

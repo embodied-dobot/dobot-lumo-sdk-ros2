@@ -20,7 +20,7 @@ int main(int argc, char** argv) {
     if (std::abs(msg->rpy[2]) > yaw_limit) {
       remote.btn_turn.y = msg->rpy[2] > 0.0f ? -0.1f : 0.1f;
     }
-    RCLCPP_INFO(node->get_logger(), "yaw=%.3f，转向指令 %.2f", msg->rpy[2], remote.btn_turn.y);
+    RCLCPP_INFO(node->get_logger(), "yaw=%.3f turn=%.2f", msg->rpy[2], remote.btn_turn.y);
     if (!enable_output) {
       return;
     }
@@ -30,7 +30,7 @@ int main(int argc, char** argv) {
       RCLCPP_ERROR(node->get_logger(), "%s", why.c_str());
     }
   });
-  RCLCPP_INFO(node->get_logger(), "闭环默认只打印。确认安全后加 enable_output:=true 才会发 /remote/control。");
+  RCLCPP_INFO(node->get_logger(), "Closed loop only prints by default. Once it is safe, add enable_output:=true to publish /remote/control.");
   rclcpp::spin(node);
   rclcpp::shutdown();
   return 0;

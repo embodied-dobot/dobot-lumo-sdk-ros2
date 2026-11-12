@@ -1,8 +1,8 @@
-# 一个运控状态机。对应 C++ 的 dobot::motion::FsmInfo。
+# One motion control FSM. Corresponds to C++ dobot::motion::FsmInfo.
 int32 fsm_id
 bool is_dance
 string name
-# 以下四项只在 is_dance 为 true 时有内容，否则是空串或 0。
+# The following four fields are populated only when is_dance is true; otherwise they are an empty string or 0.
 string dance_name
 string model_file
 int32 motion_loop_length

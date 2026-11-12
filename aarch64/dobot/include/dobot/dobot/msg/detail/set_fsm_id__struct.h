@@ -1,4 +1,3 @@
-﻿// NOLINT: This file starts with a BOM since it contain non-ASCII characters
 // generated from rosidl_generator_c/resource/idl__struct.h.em
 // with input from dobot:msg/SetFsmId.idl
 // generated code does not contain a copyright notice
@@ -26,13 +25,13 @@ extern "C"
 
 /// Struct defined in msg/SetFsmId in the package dobot.
 /**
-  * 运控状态机话题。话题 rt/set/fsm/id。技能开始和结束时底层会发布。
-  * 状态机编号。0 也是合法编号。范围 0–65535。
+  * Motion control FSM topic. Topic rt/set/fsm/id. Published by the lower layer when a skill starts and ends.
+  * FSM id. 0 is also a valid id. Range 0-65535.
  */
 typedef struct dobot__msg__SetFsmId
 {
   uint16_t id;
-  /// 当前正在执行的动作名。空字符串表示没有动作。
+  /// Name of the action currently running. Empty string means no action.
   rosidl_runtime_c__String current_action;
 } dobot__msg__SetFsmId;
 

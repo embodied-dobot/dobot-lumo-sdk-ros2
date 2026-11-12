@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""读骨盆 IMU 的偏航，超限时生成一个小的转向指令。默认只打印。"""
+"""Read the pelvis IMU yaw and generate a small turn command when it exceeds the limit. Print only by default."""
 
 import rclpy
 from dobot.msg import RemoteControl
@@ -19,7 +19,7 @@ def main():
         remote = RemoteControl()
         if abs(msg.rpy[2]) > yaw_limit:
             remote.btn_turn.y = -0.1 if msg.rpy[2] > 0.0 else 0.1
-        node.get_logger().info(f"yaw={msg.rpy[2]:.3f} 转向={remote.btn_turn.y:.2f}")
+        node.get_logger().info(f"yaw={msg.rpy[2]:.3f} turn={remote.btn_turn.y:.2f}")
         if not enable_output:
             return
         try:
@@ -28,7 +28,7 @@ def main():
             node.get_logger().error(str(exc))
 
     client.subscribe_pelvis_imu(on_imu)
-    node.get_logger().info("闭环默认只打印。确认安全后加 enable_output:=true。")
+    node.get_logger().info("Closed loop only prints by default. Once it is safe, add enable_output:=true to publish /remote/control.")
     rclpy.spin(node)
     node.destroy_node()
     rclpy.shutdown()

@@ -94,10 +94,10 @@ dobot__msg__RemoteControl__get_type_description(
 }
 
 static char toplevel_type_raw_source[] =
-  "# \\xe9\\x81\\xa5\\xe6\\x8e\\xa7\\xe9\\x80\\x9f\\xe5\\xba\\xa6\\xe6\\x84\\x8f\\xe5\\x9b\\xbe\\xe3\\x80\\x82\\xe8\\xaf\\x9d\\xe9\\xa2\\x98 rt/remote/control\\xe3\\x80\\x82\n"
-  "# \\xe5\\xb7\\xa6\\xe6\\x91\\x87\\xe6\\x9d\\x86\\xef\\xbc\\x8c\\xe5\\x89\\x8d\\xe5\\x90\\x8e/\\xe5\\xb7\\xa6\\xe5\\x8f\\xb3\\xe3\\x80\\x82\n"
+  "# Remote control velocity intent. Topic rt/remote/control.\n"
+  "# Left stick, forward/backward and left/right.\n"
   "JoystickValue btn_move\n"
-  "# \\xe5\\x8f\\xb3\\xe6\\x91\\x87\\xe6\\x9d\\x86\\xef\\xbc\\x8c\\xe8\\xbd\\xac\\xe5\\x90\\x91\\xe3\\x80\\x82\n"
+  "# Right stick, turning.\n"
   "JoystickValue btn_turn";
 
 static char msg_encoding[] = "msg";
@@ -112,7 +112,7 @@ dobot__msg__RemoteControl__get_individual_type_description_source(
   static const rosidl_runtime_c__type_description__TypeSource source = {
     {dobot__msg__RemoteControl__TYPE_NAME, 23, 23},
     {msg_encoding, 3, 3},
-    {toplevel_type_raw_source, 100, 100},
+    {toplevel_type_raw_source, 176, 176},
   };
   return &source;
 }

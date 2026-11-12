@@ -83,7 +83,7 @@ dobot__msg__LowerCmd__get_type_description(
 }
 
 static char toplevel_type_raw_source[] =
-  "# \\xe4\\xb8\\x8b\\xe8\\x82\\xa2\\xe5\\x91\\xbd\\xe4\\xbb\\xa4\\xe3\\x80\\x82\\xe8\\xaf\\x9d\\xe9\\xa2\\x98 rt/lower/cmd\\xe3\\x80\\x82motor_cmd \\xe9\\x95\\xbf\\xe5\\xba\\xa6 12\\xef\\xbc\\x8c\\xe4\\xb8\\x8e\\xe5\\xba\\x95\\xe5\\xb1\\x82 IDL \\xe4\\xb8\\x80\\xe8\\x87\\xb4\\xe3\\x80\\x82\n"
+  "# Lower body command. Topic rt/lower/cmd. motor_cmd has length 12, matching the underlying IDL.\n"
   "MotorCmd[12] motor_cmd";
 
 static char msg_encoding[] = "msg";
@@ -98,7 +98,7 @@ dobot__msg__LowerCmd__get_individual_type_description_source(
   static const rosidl_runtime_c__type_description__TypeSource source = {
     {dobot__msg__LowerCmd__TYPE_NAME, 18, 18},
     {msg_encoding, 3, 3},
-    {toplevel_type_raw_source, 74, 74},
+    {toplevel_type_raw_source, 119, 119},
   };
   return &source;
 }

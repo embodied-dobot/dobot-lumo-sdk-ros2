@@ -6,7 +6,7 @@
 module dobot {
   module srv {
     @verbatim (language="comment", text=
-      "查询当前运控状态机编号。0 也是合法编号。")
+      "Get the current motion control FSM id. 0 is also a valid id.")
     struct GetFsmId_Request {
       int32 timeout_ms;
     };

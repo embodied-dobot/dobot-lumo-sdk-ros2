@@ -1,4 +1,3 @@
-﻿// NOLINT: This file starts with a BOM since it contain non-ASCII characters
 // generated from rosidl_generator_c/resource/idl__struct.h.em
 // with input from dobot:srv/SetRobotMode.idl
 // generated code does not contain a copyright notice
@@ -29,7 +28,7 @@ extern "C"
 typedef struct dobot__srv__SetRobotMode_Request
 {
   rosidl_runtime_c__String mode;
-  /// 本次调用的超时，单位 ms，范围 1–60000。
+  /// Timeout of this call, in ms, range 1-60000.
   int32_t timeout_ms;
 } dobot__srv__SetRobotMode_Request;
 
@@ -55,7 +54,7 @@ typedef struct dobot__srv__SetRobotMode_Response
 {
   int32_t code;
   rosidl_runtime_c__String message;
-  /// 已下发的状态机编号。失败时为 -1。
+  /// FSM id that was sent. -1 on failure.
   int32_t fsm_id;
 } dobot__srv__SetRobotMode_Response;
 

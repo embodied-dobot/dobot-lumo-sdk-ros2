@@ -22,21 +22,21 @@ extern "C"
 
 /// Struct defined in msg/MotorCmd in the package dobot.
 /**
-  * 单个关节的伺服命令。字段顺序与 dobot::msg::dds_::MotorCmd_ 一致。
-  * 电机模式，原始协议值，范围 0–255。
+  * Servo command of a single joint. Field order matches dobot::msg::dds_::MotorCmd_.
+  * Motor mode, raw protocol value, range 0-255.
  */
 typedef struct dobot__msg__MotorCmd
 {
   uint8_t mode;
-  /// 目标角位置，单位 rad。
+  /// Target position, in rad.
   float q;
-  /// 目标角速度，单位 rad/s。
+  /// Target velocity, in rad/s.
   float dq;
-  /// 前馈力矩，单位 N·m。
+  /// Feedforward torque, in N·m.
   float tau;
-  /// 位置比例增益。负值无物理意义，SDK 会拒绝。
+  /// Position proportional gain. Negative values are physically meaningless and rejected by the SDK.
   float kp;
-  /// 速度微分增益。负值无物理意义，SDK 会拒绝。
+  /// Velocity derivative gain. Negative values are physically meaningless and rejected by the SDK.
   float kd;
 } dobot__msg__MotorCmd;
 

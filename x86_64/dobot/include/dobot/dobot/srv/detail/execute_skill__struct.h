@@ -1,4 +1,3 @@
-﻿// NOLINT: This file starts with a BOM since it contain non-ASCII characters
 // generated from rosidl_generator_c/resource/idl__struct.h.em
 // with input from dobot:srv/ExecuteSkill.idl
 // generated code does not contain a copyright notice
@@ -29,7 +28,7 @@ extern "C"
 typedef struct dobot__srv__ExecuteSkill_Request
 {
   rosidl_runtime_c__String file_path;
-  /// 只覆盖这次 RPC 往返，不表示动作已经播完。
+  /// Covers only this RPC round trip; it does not mean the action has finished playing.
   int32_t timeout_ms;
 } dobot__srv__ExecuteSkill_Request;
 

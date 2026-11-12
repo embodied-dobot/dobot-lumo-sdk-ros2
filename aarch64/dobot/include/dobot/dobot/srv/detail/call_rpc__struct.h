@@ -1,4 +1,3 @@
-﻿// NOLINT: This file starts with a BOM since it contain non-ASCII characters
 // generated from rosidl_generator_c/resource/idl__struct.h.em
 // with input from dobot:srv/CallRpc.idl
 // generated code does not contain a copyright notice
@@ -30,7 +29,7 @@ extern "C"
 typedef struct dobot__srv__CallRpc_Request
 {
   rosidl_runtime_c__String method;
-  /// JSON 对象文本，例如 "{}" 或 "{"fsm_id":300}"。
+  /// JSON object text, e.g. "{}" or "{"fsm_id":300}".
   rosidl_runtime_c__String params_json;
   int32_t timeout_ms;
 } dobot__srv__CallRpc_Request;
@@ -58,7 +57,7 @@ typedef struct dobot__srv__CallRpc_Response
 {
   int32_t code;
   rosidl_runtime_c__String message;
-  /// 机器人返回的原始 JSON 文本。
+  /// Raw JSON text returned by the robot.
   rosidl_runtime_c__String response_json;
 } dobot__srv__CallRpc_Response;
 

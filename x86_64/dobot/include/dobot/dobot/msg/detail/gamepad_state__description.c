@@ -132,21 +132,21 @@ dobot__msg__GamepadState__get_type_description(
 }
 
 static char toplevel_type_raw_source[] =
-  "# \\xe6\\x89\\x8b\\xe6\\x9f\\x84\\xe7\\x8a\\xb6\\xe6\\x80\\x81\\xe3\\x80\\x82\\xe8\\xaf\\x9d\\xe9\\xa2\\x98 rt/gamepad/state\\xe3\\x80\\x82\n"
-  "# \\xe5\\x8d\\x8f\\xe8\\xae\\xae\\xe5\\xa4\\xb4\\xe3\\x80\\x82\n"
+  "# Gamepad state. Topic rt/gamepad/state.\n"
+  "# Protocol header.\n"
   "uint16 head\n"
-  "# \\xe6\\x8c\\x89\\xe9\\x94\\xae\\xe4\\xbd\\x8d\\xe3\\x80\\x82bit0 R1\\xef\\xbc\\x8cbit1 L1\\xef\\xbc\\x8cbit2 start\\xef\\xbc\\x8cbit3 select\\xef\\xbc\\x8cbit4 R2\\xef\\xbc\\x8cbit5 L2\\xef\\xbc\\x8cbit6 F1\\xef\\xbc\\x8cbit7 F2\\xef\\xbc\\x8c\n"
-  "# bit8 A\\xef\\xbc\\x8cbit9 B\\xef\\xbc\\x8cbit10 X\\xef\\xbc\\x8cbit11 Y\\xef\\xbc\\x8cbit12 up\\xef\\xbc\\x8cbit13 right\\xef\\xbc\\x8cbit14 down\\xef\\xbc\\x8cbit15 left\\xe3\\x80\\x82\n"
+  "# Key bits. bit0 R1, bit1 L1, bit2 start, bit3 select, bit4 R2, bit5 L2, bit6 F1, bit7 F2,\n"
+  "# bit8 A, bit9 B, bit10 X, bit11 Y, bit12 up, bit13 right, bit14 down, bit15 left.\n"
   "uint16 btn_state\n"
-  "# \\xe5\\xb7\\xa6\\xe6\\x91\\x87\\xe6\\x9d\\x86 x\\xef\\xbc\\x8c\\xe5\\xb8\\xb8\\xe8\\xa7\\x81\\xe8\\x8c\\x83\\xe5\\x9b\\xb4 -1.0\\xe2\\x80\\x931.0\\xe3\\x80\\x82\n"
+  "# Left stick x, typically -1.0 to 1.0.\n"
   "float32 lx\n"
-  "# \\xe5\\xb7\\xa6\\xe6\\x91\\x87\\xe6\\x9d\\x86 y\\xef\\xbc\\x8c\\xe5\\xb8\\xb8\\xe8\\xa7\\x81\\xe8\\x8c\\x83\\xe5\\x9b\\xb4 -1.0\\xe2\\x80\\x931.0\\xe3\\x80\\x82\n"
+  "# Left stick y, typically -1.0 to 1.0.\n"
   "float32 ly\n"
-  "# \\xe5\\x8f\\xb3\\xe6\\x91\\x87\\xe6\\x9d\\x86 x\\xef\\xbc\\x8c\\xe5\\xb8\\xb8\\xe8\\xa7\\x81\\xe8\\x8c\\x83\\xe5\\x9b\\xb4 -1.0\\xe2\\x80\\x931.0\\xe3\\x80\\x82\n"
+  "# Right stick x, typically -1.0 to 1.0.\n"
   "float32 rx\n"
-  "# \\xe5\\x8f\\xb3\\xe6\\x91\\x87\\xe6\\x9d\\x86 y\\xef\\xbc\\x8c\\xe5\\xb8\\xb8\\xe8\\xa7\\x81\\xe8\\x8c\\x83\\xe5\\x9b\\xb4 -1.0\\xe2\\x80\\x931.0\\xe3\\x80\\x82\n"
+  "# Right stick y, typically -1.0 to 1.0.\n"
   "float32 ry\n"
-  "# \\xe9\\x87\\x87\\xe6\\xa0\\xb7\\xe6\\x97\\xb6\\xe9\\x97\\xb4\\xe6\\x88\\xb3\\xef\\xbc\\x8c\\xe5\\x8d\\x95\\xe4\\xbd\\x8d us\\xe3\\x80\\x82\n"
+  "# Sampling timestamp, in us.\n"
   "uint64 timestamp_us";
 
 static char msg_encoding[] = "msg";
@@ -161,7 +161,7 @@ dobot__msg__GamepadState__get_individual_type_description_source(
   static const rosidl_runtime_c__type_description__TypeSource source = {
     {dobot__msg__GamepadState__TYPE_NAME, 22, 22},
     {msg_encoding, 3, 3},
-    {toplevel_type_raw_source, 389, 389},
+    {toplevel_type_raw_source, 514, 514},
   };
   return &source;
 }

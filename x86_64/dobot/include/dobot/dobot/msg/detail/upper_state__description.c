@@ -116,14 +116,14 @@ dobot__msg__UpperState__get_type_description(
 }
 
 static char toplevel_type_raw_source[] =
-  "# \\xe4\\xb8\\x8a\\xe8\\x82\\xa2\\xe7\\x8a\\xb6\\xe6\\x80\\x81\\xe3\\x80\\x82\\xe8\\xaf\\x9d\\xe9\\xa2\\x98 rt/upper/state\\xe3\\x80\\x82\n"
-  "# \\xe4\\xba\\xa7\\xe5\\x93\\x81\\xe5\\x9e\\x8b\\xe5\\x8f\\xb7\\xef\\xbc\\x8c\\xe5\\xae\\x9a\\xe9\\x95\\xbf 16 \\xe5\\xad\\x97\\xe8\\x8a\\x82\\xef\\xbc\\x8c\\xe4\\xb8\\x8d\\xe8\\xb6\\xb3\\xe8\\xa1\\xa5 0\\xe3\\x80\\x82\\xe4\\xb8\\x8e IDL char[16] \\xe5\\xaf\\xb9\\xe5\\xba\\x94\\xe3\\x80\\x82\n"
+  "# Upper body state. Topic rt/upper/state.\n"
+  "# Product model, fixed 16 bytes, zero-padded. Corresponds to IDL char[16].\n"
   "char[16] robot_type\n"
-  "# true \\xe8\\xa1\\xa8\\xe7\\xa4\\xba\\xe4\\xb8\\x8a\\xe8\\x82\\xa2\\xe5\\xbd\\x93\\xe5\\x89\\x8d\\xe7\\x94\\xb1\\xe5\\xa4\\x96\\xe9\\x83\\xa8\\xe6\\x8e\\xa7\\xe5\\x88\\xb6\\xe3\\x80\\x82\n"
+  "# true means the upper body is currently under external control.\n"
   "bool is_upper_control\n"
-  "# \\xe4\\xb8\\x8a\\xe8\\x82\\xa2\\xe7\\x94\\xb5\\xe6\\x9c\\xba\\xe7\\x8a\\xb6\\xe6\\x80\\x81\\xef\\xbc\\x8c\\xe9\\x95\\xbf\\xe5\\xba\\xa6 18\\xe3\\x80\\x82\n"
+  "# Upper body motor states, length 18.\n"
   "MotorState[18] motor_state\n"
-  "# \\xe9\\x87\\x87\\xe6\\xa0\\xb7\\xe6\\x97\\xb6\\xe9\\x97\\xb4\\xe6\\x88\\xb3\\xef\\xbc\\x8c\\xe5\\x8d\\x95\\xe4\\xbd\\x8d us\\xe3\\x80\\x82\n"
+  "# Sampling timestamp, in us.\n"
   "uint64 timestamp_us";
 
 static char msg_encoding[] = "msg";
@@ -138,7 +138,7 @@ dobot__msg__UpperState__get_individual_type_description_source(
   static const rosidl_runtime_c__type_description__TypeSource source = {
     {dobot__msg__UpperState__TYPE_NAME, 20, 20},
     {msg_encoding, 3, 3},
-    {toplevel_type_raw_source, 207, 207},
+    {toplevel_type_raw_source, 338, 338},
   };
   return &source;
 }

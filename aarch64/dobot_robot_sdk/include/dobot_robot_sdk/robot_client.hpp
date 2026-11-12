@@ -30,19 +30,19 @@
 
 namespace dobot_robot_sdk {
 
-// 连一台机器人。不占有进程里唯一的节点，调用方继续 spin 自己的节点。
-// 同步服务调用不要放在这个节点的回调里，否则响应没有线程处理。回调里用 async 版本。
+// Connects to one robot. It does not own the process's node; the caller keeps spinning their own node.
+// Do not make synchronous service calls from this node's callbacks, or no thread is left to handle the response. Use the async versions in callbacks.
 struct ClientConfig {
-  // SR_3588 或 SR_thor。决定默认 IP。
+  // SR_3588 or SR_thor. Determines the default IP.
   std::string model = "SR_3588";
-  // 空则按型号填 192.168.5.2 或 172.16.20.2。只给 JSON-RPC 用。
+  // If empty, filled by model: 192.168.5.2 or 172.16.20.2. Used by JSON-RPC only.
   std::string robot_ip;
   int rpc_port = 51234;
   int rpc_timeout_ms = 1000;
-  // true 时 init 会打一次 GetFsmId。机器人不在线且 require_rpc 为 false 时，init 仍然成功。
+  // If true, init calls GetFsmId once. If the robot is offline and require_rpc is false, init still succeeds.
   bool check_rpc = false;
   bool require_rpc = false;
-  // 加在话题名前。空表示 /lower/state 这种名字。
+  // Prepended to topic names. Empty means plain names such as /lower/state.
   std::string ros_topic_prefix;
   std::string service_prefix = "/dobot";
   bool auto_reconnect = true;
@@ -52,7 +52,7 @@ class RobotClient {
  public:
   explicit RobotClient(rclcpp::Node::SharedPtr node);
 
-  // 成功返回 true。失败时 error 里是原因，不抛异常。
+  // Returns true on success. On failure the reason is in error; does not throw.
   bool init(const ClientConfig& config, std::string* error);
   bool ready() const { return ready_; }
   const ClientConfig& config() const { return config_; }
@@ -82,7 +82,7 @@ class RobotClient {
     return subscribe<dobot::msg::SetFsmId>("set/fsm/id", "set_fsm_id", std::forward<Callback>(cb));
   }
 
-  // 发布失败返回错误码。error 可空。kp、kd 为负，或浮点不是有限数时返回 kInvalidArgument，不会发出去。
+  // Returns an error code if publishing fails. error may be null. Returns kInvalidArgument without publishing if kp or kd is negative or a float is not finite.
   ErrorCode publish_lower_cmd(const dobot::msg::LowerCmd& cmd, std::string* error);
   ErrorCode publish_upper_cmd(const dobot::msg::UpperCmd& cmd, std::string* error);
   ErrorCode publish_standing(const dobot::msg::StandingControl& cmd, std::string* error);
@@ -93,27 +93,27 @@ class RobotClient {
   ErrorCode publish_go_home(const dobot::msg::GoHome& cmd, std::string* error);
   ErrorCode publish_calibration_flag(const dobot::msg::SetCalibrationFlag& cmd, std::string* error);
 
-  // 同步调用 /dobot/get_fsm_id。服务不在时返回 kServiceUnavailable。
+  // Synchronously calls /dobot/get_fsm_id. Returns kServiceUnavailable if the service is not available.
   ErrorCode get_fsm_id(int timeout_ms, std::int32_t* fsm_id, std::string* error);
-  // mode: zero_torque damping custom_debug ready standing walking。
+  // mode: zero_torque damping custom_debug ready standing walking.
   ErrorCode set_robot_mode(const std::string& mode, int timeout_ms, std::int32_t* fsm_id, std::string* error);
-  // vx 向前为正，m/s；vy 向左为正，m/s；vyaw 逆时针为正，rad/s。duration 单位秒。
+  // vx is positive forward, m/s; vy is positive left, m/s; vyaw is positive counter-clockwise, rad/s. duration is in seconds.
   ErrorCode set_velocity(float vx, float vy, float vyaw, float duration, int timeout_ms, std::string* error);
 
-  // 查询机器人上全部状态机，包括舞蹈。对应 C++ SDK 的 Motion::GetFsmList。
+  // Queries all FSMs on the robot, including dance. Corresponds to Motion::GetFsmList in the C++ SDK.
   ErrorCode get_fsm_list(int timeout_ms, std::vector<dobot::msg::FsmInfo>* fsm_list, std::string* error);
-  // action: auto_enter_box auto_exit_box lie_down go_prone stand_up_supine stand_up_prone。
-  // 成功只表示切换被接受，不表示动作做完。auto_exit_box、stand_up_* 返回后不要立刻切 standing，见 PlayPresetAction.srv。
+  // action: auto_enter_box auto_exit_box lie_down go_prone stand_up_supine stand_up_prone.
+  // Success only means the switch was accepted, not that the action has finished. After auto_exit_box or stand_up_* returns, do not switch to standing immediately; see PlayPresetAction.srv.
   ErrorCode play_preset_action(const std::string& action, int timeout_ms, std::int32_t* fsm_id, std::string* error);
-  // 播放机器人技能目录里的动作。file_path 是机器人上的文件名。成功只表示 RPC 被接受。
+  // Plays a skill from the robot's skill directory. file_path is a file name on the robot. Success only means the RPC was accepted.
   ErrorCode execute_skill(const std::string& file_path, int timeout_ms, std::string* error);
-  // 直接调用一个 JSON-RPC 方法，给还没有单独服务的方法用。params_json 为空时按 "{}"。
-  // 返回 kOk 只表示传输成功。result 的业务含义要看 response_json。
+  // Calls a JSON-RPC method directly, for methods that have no dedicated service yet. An empty params_json is treated as "{}".
+  // kOk only means the transport succeeded. See response_json for the meaning of result.
   ErrorCode call_rpc(
       const std::string& method, const std::string& params_json, int timeout_ms, std::string* response_json,
       std::string* error);
 
-  // 异步版本。返回的 future 要等节点被 spin 才会完成。error 只表示客户端还没建好。
+  // Async version. The returned future completes only while the node is spinning. error only indicates the client is not ready yet.
   rclcpp::Client<dobot::srv::GetFsmId>::SharedFuture get_fsm_id_async(int timeout_ms, std::string* error);
   rclcpp::Client<dobot::srv::SetRobotMode>::SharedFuture set_robot_mode_async(
       const std::string& mode, int timeout_ms, std::string* error);

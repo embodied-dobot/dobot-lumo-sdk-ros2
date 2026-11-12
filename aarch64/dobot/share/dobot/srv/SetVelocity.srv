@@ -1,11 +1,11 @@
-# 下发底盘速度。超时后运控自己停。停机用 vx=vy=vyaw=0。
-# 向前为正，单位 m/s。
+# Send a base velocity command. Motion control stops on its own after the timeout. To stop, use vx=vy=vyaw=0.
+# Positive is forward, in m/s.
 float32 vx
-# 向左为正，单位 m/s。
+# Positive is left, in m/s.
 float32 vy
-# 逆时针为正，单位 rad/s。
+# Positive is counter-clockwise, in rad/s.
 float32 vyaw
-# 保持时间，单位 s。小于 0 会被 SDK 拒绝。
+# Hold duration, in s. Values below 0 are rejected by the SDK.
 float32 duration
 int32 timeout_ms
 ---

@@ -1,4 +1,3 @@
-﻿// NOLINT: This file starts with a BOM since it contain non-ASCII characters
 // generated from rosidl_generator_c/resource/idl__struct.h.em
 // with input from dobot:msg/IMUState.idl
 // generated code does not contain a copyright notice
@@ -22,24 +21,24 @@ extern "C"
 
 /// Struct defined in msg/IMUState in the package dobot.
 /**
-  * IMU 状态。话题 rt/pelvis/imu/data 与 rt/torso/imu/data 共用本类型。
-  * 同一次会话只应订阅其中一路，与 C++ SDK 的约束一致。
-  * IMU 编号，范围 0–4294967295。
+  * IMU state. Topics rt/pelvis/imu/data and rt/torso/imu/data share this type.
+  * Subscribe to only one of them per session, consistent with the C++ SDK constraint.
+  * IMU id, range 0-4294967295.
  */
 typedef struct dobot__msg__IMUState
 {
   uint32_t imu_id;
-  /// 四元数，4 个数，顺序与底层 IDL 一致。
+  /// Quaternion, 4 values, order matches the underlying IDL.
   float quaternion[4];
-  /// 三轴陀螺仪，顺序与底层 IDL 一致，单位通常为 rad/s。
+  /// 3-axis gyroscope, order matches the underlying IDL, usually in rad/s.
   float gyroscope[3];
-  /// 三轴加速度，顺序与底层 IDL 一致，单位通常为 m/s^2。
+  /// 3-axis acceleration, order matches the underlying IDL, usually in m/s^2.
   float accelerometer[3];
-  /// 欧拉角，顺序滚转、俯仰、偏航，单位 rad。
+  /// Euler angles in the order roll, pitch, yaw, in rad.
   float rpy[3];
-  /// 温度原始值，范围 0–255。
+  /// Raw temperature, range 0-255.
   uint8_t temperature;
-  /// 采样时间戳，单位 us。
+  /// Sampling timestamp, in us.
   uint64_t timestamp_us;
 } dobot__msg__IMUState;
 

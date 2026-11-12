@@ -1,4 +1,3 @@
-﻿// NOLINT: This file starts with a BOM since it contain non-ASCII characters
 // generated from rosidl_generator_c/resource/idl__struct.h.em
 // with input from dobot:srv/PlayPresetAction.idl
 // generated code does not contain a copyright notice
@@ -54,7 +53,7 @@ typedef struct dobot__srv__PlayPresetAction_Response
 {
   int32_t code;
   rosidl_runtime_c__String message;
-  /// 已下发的状态机编号。失败时为 -1。
+  /// FSM id that was sent. -1 on failure.
   int32_t fsm_id;
 } dobot__srv__PlayPresetAction_Response;
 

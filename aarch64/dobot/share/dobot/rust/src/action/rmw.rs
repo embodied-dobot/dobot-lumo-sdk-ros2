@@ -32,7 +32,7 @@ pub struct ExecuteMotion_Goal {
     #[allow(missing_docs)]
     pub command: rosidl_runtime_rs::String,
 
-    /// set_mode 时使用，取值同 SetRobotMode.mode。
+    /// Used with set_mode; values are the same as SetRobotMode.mode.
     pub mode: rosidl_runtime_rs::String,
 
 
@@ -55,7 +55,7 @@ pub struct ExecuteMotion_Goal {
     #[allow(missing_docs)]
     pub duration: f32,
 
-    /// play_dance 时使用，合法范围 350–400。
+    /// Used with play_dance; valid range 350-400.
     pub fsm_id: i32,
 
 

@@ -1,4 +1,3 @@
-﻿// NOLINT: This file starts with a BOM since it contain non-ASCII characters
 // generated from rosidl_generator_c/resource/idl__struct.h.em
 // with input from dobot:msg/UpperCmd.idl
 // generated code does not contain a copyright notice
@@ -26,7 +25,7 @@ extern "C"
 
 /// Struct defined in msg/UpperCmd in the package dobot.
 /**
-  * 上肢命令。话题 rt/upper/cmd。motor_cmd 长度 18，与底层 IDL 一致。
+  * Upper body command. Topic rt/upper/cmd. motor_cmd has length 18, matching the underlying IDL.
  */
 typedef struct dobot__msg__UpperCmd
 {

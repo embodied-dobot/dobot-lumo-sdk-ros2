@@ -382,10 +382,10 @@ dobot__srv__GetFsmList_Event__get_type_description(
 }
 
 static char toplevel_type_raw_source[] =
-  "# \\xe6\\x9f\\xa5\\xe8\\xaf\\xa2\\xe6\\x9c\\xba\\xe5\\x99\\xa8\\xe4\\xba\\xba\\xe4\\xb8\\x8a\\xe5\\x85\\xa8\\xe9\\x83\\xa8\\xe7\\x8a\\xb6\\xe6\\x80\\x81\\xe6\\x9c\\xba\\xef\\xbc\\x8c\\xe5\\x8c\\x85\\xe6\\x8b\\xac\\xe8\\x88\\x9e\\xe8\\xb9\\x88\\xe3\\x80\\x82\\xe5\\xaf\\xb9\\xe5\\xba\\x94 C++ \\xe7\\x9a\\x84 Motion::GetFsmList\\xe3\\x80\\x82\n"
+  "# List all FSMs on the robot, including dances. Corresponds to C++ Motion::GetFsmList.\n"
   "int32 timeout_ms\n"
   "---\n"
-  "# 0 \\xe6\\x88\\x90\\xe5\\x8a\\x9f\\xe3\\x80\\x82\\xe9\\x9d\\x9e 0 \\xe8\\xa7\\x81 dobot_robot_sdk \\xe9\\x94\\x99\\xe8\\xaf\\xaf\\xe7\\xa0\\x81\\xe3\\x80\\x82\n"
+  "# 0 on success. For non-zero values see the dobot_robot_sdk error codes.\n"
   "int32 code\n"
   "string message\n"
   "FsmInfo[] fsm_list";
@@ -403,7 +403,7 @@ dobot__srv__GetFsmList__get_individual_type_description_source(
   static const rosidl_runtime_c__type_description__TypeSource source = {
     {dobot__srv__GetFsmList__TYPE_NAME, 20, 20},
     {srv_encoding, 3, 3},
-    {toplevel_type_raw_source, 148, 148},
+    {toplevel_type_raw_source, 226, 226},
   };
   return &source;
 }

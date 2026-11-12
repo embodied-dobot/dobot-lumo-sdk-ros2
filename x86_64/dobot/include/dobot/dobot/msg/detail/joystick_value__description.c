@@ -77,7 +77,7 @@ dobot__msg__JoystickValue__get_type_description(
 }
 
 static char toplevel_type_raw_source[] =
-  "# \\xe6\\x91\\x87\\xe6\\x9d\\x86\\xe5\\x88\\x86\\xe9\\x87\\x8f\\xe3\\x80\\x82x\\xe3\\x80\\x81y \\xe4\\xb8\\xba\\xe5\\x8e\\x9f\\xe5\\xa7\\x8b\\xe9\\x94\\xae\\xe5\\x80\\xbc\\xef\\xbc\\x8c\\xe5\\xb8\\xb8\\xe8\\xa7\\x81\\xe8\\x8c\\x83\\xe5\\x9b\\xb4 -1.0\\xe2\\x80\\x931.0\\xe3\\x80\\x82\n"
+  "# Joystick components. x and y are raw key values, typically in the range -1.0 to 1.0.\n"
   "float32 x\n"
   "float32 y";
 
@@ -93,7 +93,7 @@ dobot__msg__JoystickValue__get_individual_type_description_source(
   static const rosidl_runtime_c__type_description__TypeSource source = {
     {dobot__msg__JoystickValue__TYPE_NAME, 23, 23},
     {msg_encoding, 3, 3},
-    {toplevel_type_raw_source, 52, 52},
+    {toplevel_type_raw_source, 107, 107},
   };
   return &source;
 }

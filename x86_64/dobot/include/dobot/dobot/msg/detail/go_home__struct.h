@@ -1,4 +1,3 @@
-﻿// NOLINT: This file starts with a BOM since it contain non-ASCII characters
 // generated from rosidl_generator_c/resource/idl__struct.h.em
 // with input from dobot:msg/GoHome.idl
 // generated code does not contain a copyright notice
@@ -22,8 +21,8 @@ extern "C"
 
 /// Struct defined in msg/GoHome in the package dobot.
 /**
-  * 回零。话题 rt/go/home。每一位对应一路电机，true 表示该路参与回零。
-  * 长度 30，与底层 IDL 一致。
+  * Go home. Topic rt/go/home. Each bit maps to one motor; true means that motor takes part in homing.
+  * Length 30, matching the underlying IDL.
  */
 typedef struct dobot__msg__GoHome
 {

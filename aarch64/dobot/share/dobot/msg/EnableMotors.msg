@@ -1,3 +1,3 @@
-# 电机使能。话题 rt/enable/motors。每一位对应一路电机，true 为使能。
-# 长度 30，与底层 IDL 一致。
+# Motor enable. Topic rt/enable/motors. Each bit maps to one motor; true means enabled.
+# Length 30, matching the underlying IDL.
 bool[30] flag

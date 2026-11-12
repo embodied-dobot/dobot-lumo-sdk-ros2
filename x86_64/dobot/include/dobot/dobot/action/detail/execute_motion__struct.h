@@ -1,4 +1,3 @@
-﻿// NOLINT: This file starts with a BOM since it contain non-ASCII characters
 // generated from rosidl_generator_c/resource/idl__struct.h.em
 // with input from dobot:action/ExecuteMotion.idl
 // generated code does not contain a copyright notice
@@ -30,13 +29,13 @@ extern "C"
 typedef struct dobot__action__ExecuteMotion_Goal
 {
   rosidl_runtime_c__String command;
-  /// set_mode 时使用，取值同 SetRobotMode.mode。
+  /// Used with set_mode; values are the same as SetRobotMode.mode.
   rosidl_runtime_c__String mode;
   float vx;
   float vy;
   float vyaw;
   float duration;
-  /// play_dance 时使用，合法范围 350–400。
+  /// Used with play_dance; valid range 350-400.
   int32_t fsm_id;
   int32_t timeout_ms;
 } dobot__action__ExecuteMotion_Goal;

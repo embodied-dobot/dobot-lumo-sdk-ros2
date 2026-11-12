@@ -1,4 +1,3 @@
-﻿// NOLINT: This file starts with a BOM since it contain non-ASCII characters
 // generated from rosidl_generator_c/resource/idl__struct.h.em
 // with input from dobot:srv/SetVelocity.idl
 // generated code does not contain a copyright notice
@@ -25,11 +24,11 @@ extern "C"
 typedef struct dobot__srv__SetVelocity_Request
 {
   float vx;
-  /// 向左为正，单位 m/s。
+  /// Positive is left, in m/s.
   float vy;
-  /// 逆时针为正，单位 rad/s。
+  /// Positive is counter-clockwise, in rad/s.
   float vyaw;
-  /// 保持时间，单位 s。小于 0 会被 SDK 拒绝。
+  /// Hold duration, in s. Values below 0 are rejected by the SDK.
   float duration;
   int32_t timeout_ms;
 } dobot__srv__SetVelocity_Request;

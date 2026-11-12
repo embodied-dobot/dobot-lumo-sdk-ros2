@@ -1276,15 +1276,15 @@ dobot__action__ExecuteMotion_FeedbackMessage__get_type_description(
 }
 
 static char toplevel_type_raw_source[] =
-  "# \\xe8\\xbf\\x90\\xe6\\x8e\\xa7\\xe5\\x8a\\xa8\\xe4\\xbd\\x9c\\xe3\\x80\\x82command \\xe5\\x8f\\x96\\xe5\\x80\\xbc set_mode\\xe3\\x80\\x81set_velocity\\xe3\\x80\\x81play_dance\\xe3\\x80\\x82\n"
+  "# Motion control action. command values: set_mode, set_velocity, play_dance.\n"
   "string command\n"
-  "# set_mode \\xe6\\x97\\xb6\\xe4\\xbd\\xbf\\xe7\\x94\\xa8\\xef\\xbc\\x8c\\xe5\\x8f\\x96\\xe5\\x80\\xbc\\xe5\\x90\\x8c SetRobotMode.mode\\xe3\\x80\\x82\n"
+  "# Used with set_mode; values are the same as SetRobotMode.mode.\n"
   "string mode\n"
   "float32 vx\n"
   "float32 vy\n"
   "float32 vyaw\n"
   "float32 duration\n"
-  "# play_dance \\xe6\\x97\\xb6\\xe4\\xbd\\xbf\\xe7\\x94\\xa8\\xef\\xbc\\x8c\\xe5\\x90\\x88\\xe6\\xb3\\x95\\xe8\\x8c\\x83\\xe5\\x9b\\xb4 350\\xe2\\x80\\x93400\\xe3\\x80\\x82\n"
+  "# Used with play_dance; valid range 350-400.\n"
   "int32 fsm_id\n"
   "int32 timeout_ms\n"
   "---\n"
@@ -1292,7 +1292,7 @@ static char toplevel_type_raw_source[] =
   "string message\n"
   "int32 fsm_id\n"
   "---\n"
-  "# \\xe5\\xbd\\x93\\xe5\\x89\\x8d\\xe9\\x98\\xb6\\xe6\\xae\\xb5\\xef\\xbc\\x9aaccepted\\xe3\\x80\\x81running\\xe3\\x80\\x81finished\\xe3\\x80\\x82\n"
+  "# Current stage: accepted, running, finished.\n"
   "string stage\n"
   "int32 fsm_id";
 
@@ -1309,7 +1309,7 @@ dobot__action__ExecuteMotion__get_individual_type_description_source(
   static const rosidl_runtime_c__type_description__TypeSource source = {
     {dobot__action__ExecuteMotion__TYPE_NAME, 26, 26},
     {action_encoding, 6, 6},
-    {toplevel_type_raw_source, 337, 337},
+    {toplevel_type_raw_source, 414, 414},
   };
   return &source;
 }

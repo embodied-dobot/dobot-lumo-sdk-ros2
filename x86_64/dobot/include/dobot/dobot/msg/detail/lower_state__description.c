@@ -94,9 +94,9 @@ dobot__msg__LowerState__get_type_description(
 }
 
 static char toplevel_type_raw_source[] =
-  "# \\xe4\\xb8\\x8b\\xe8\\x82\\xa2\\xe7\\x8a\\xb6\\xe6\\x80\\x81\\xe3\\x80\\x82\\xe8\\xaf\\x9d\\xe9\\xa2\\x98 rt/lower/state\\xe3\\x80\\x82motor_state \\xe9\\x95\\xbf\\xe5\\xba\\xa6 15\\xef\\xbc\\x8c\\xe4\\xb8\\x8e\\xe5\\xba\\x95\\xe5\\xb1\\x82 IDL \\xe4\\xb8\\x80\\xe8\\x87\\xb4\\xe3\\x80\\x82\n"
+  "# Lower body state. Topic rt/lower/state. motor_state has length 15, matching the underlying IDL.\n"
   "MotorState[15] motor_state\n"
-  "# \\xe9\\x87\\x87\\xe6\\xa0\\xb7\\xe6\\x97\\xb6\\xe9\\x97\\xb4\\xe6\\x88\\xb3\\xef\\xbc\\x8c\\xe5\\x8d\\x95\\xe4\\xbd\\x8d us\\xef\\xbc\\x8c\\xe4\\xbb\\x8e\\xe6\\x9c\\xba\\xe5\\x99\\xa8\\xe4\\xba\\xba\\xe5\\x8d\\x95\\xe8\\xb0\\x83\\xe6\\x97\\xb6\\xe9\\x92\\x9f\\xe8\\xb5\\xb7\\xe7\\xae\\x97\\xe3\\x80\\x82\n"
+  "# Sampling timestamp, in us, counted from the robot monotonic clock.\n"
   "uint64 timestamp_us";
 
 static char msg_encoding[] = "msg";
@@ -111,7 +111,7 @@ dobot__msg__LowerState__get_individual_type_description_source(
   static const rosidl_runtime_c__type_description__TypeSource source = {
     {dobot__msg__LowerState__TYPE_NAME, 20, 20},
     {msg_encoding, 3, 3},
-    {toplevel_type_raw_source, 128, 128},
+    {toplevel_type_raw_source, 214, 214},
   };
   return &source;
 }

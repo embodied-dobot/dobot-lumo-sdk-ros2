@@ -353,7 +353,7 @@ dobot__srv__GetFsmId_Event__get_type_description(
 }
 
 static char toplevel_type_raw_source[] =
-  "# \\xe6\\x9f\\xa5\\xe8\\xaf\\xa2\\xe5\\xbd\\x93\\xe5\\x89\\x8d\\xe8\\xbf\\x90\\xe6\\x8e\\xa7\\xe7\\x8a\\xb6\\xe6\\x80\\x81\\xe6\\x9c\\xba\\xe7\\xbc\\x96\\xe5\\x8f\\xb7\\xe3\\x80\\x820 \\xe4\\xb9\\x9f\\xe6\\x98\\xaf\\xe5\\x90\\x88\\xe6\\xb3\\x95\\xe7\\xbc\\x96\\xe5\\x8f\\xb7\\xe3\\x80\\x82\n"
+  "# Get the current motion control FSM id. 0 is also a valid id.\n"
   "int32 timeout_ms\n"
   "---\n"
   "int32 code\n"
@@ -373,7 +373,7 @@ dobot__srv__GetFsmId__get_individual_type_description_source(
   static const rosidl_runtime_c__type_description__TypeSource source = {
     {dobot__srv__GetFsmId__TYPE_NAME, 18, 18},
     {srv_encoding, 3, 3},
-    {toplevel_type_raw_source, 84, 84},
+    {toplevel_type_raw_source, 123, 123},
   };
   return &source;
 }

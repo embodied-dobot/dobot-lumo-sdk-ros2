@@ -18,7 +18,7 @@ pub struct SetRobotMode_Request {
     #[allow(missing_docs)]
     pub mode: std::string::String,
 
-    /// 本次调用的超时，单位 ms，范围 1–60000。
+    /// Timeout of this call, in ms, range 1-60000.
     pub timeout_ms: i32,
 
 }
@@ -75,7 +75,7 @@ pub struct SetRobotMode_Response {
     #[allow(missing_docs)]
     pub message: std::string::String,
 
-    /// 已下发的状态机编号。失败时为 -1。
+    /// FSM id that was sent. -1 on failure.
     pub fsm_id: i32,
 
 }
@@ -238,13 +238,13 @@ pub struct SetVelocity_Request {
     #[allow(missing_docs)]
     pub vx: f32,
 
-    /// 向左为正，单位 m/s。
+    /// Positive is left, in m/s.
     pub vy: f32,
 
-    /// 逆时针为正，单位 rad/s。
+    /// Positive is counter-clockwise, in rad/s.
     pub vyaw: f32,
 
-    /// 保持时间，单位 s。小于 0 会被 SDK 拒绝。
+    /// Hold duration, in s. Values below 0 are rejected by the SDK.
     pub duration: f32,
 
 
@@ -540,7 +540,7 @@ pub struct PlayPresetAction_Response {
     #[allow(missing_docs)]
     pub message: std::string::String,
 
-    /// 已下发的状态机编号。失败时为 -1。
+    /// FSM id that was sent. -1 on failure.
     pub fsm_id: i32,
 
 }
@@ -595,7 +595,7 @@ pub struct ExecuteSkill_Request {
     #[allow(missing_docs)]
     pub file_path: std::string::String,
 
-    /// 只覆盖这次 RPC 往返，不表示动作已经播完。
+    /// Covers only this RPC round trip; it does not mean the action has finished playing.
     pub timeout_ms: i32,
 
 }
@@ -701,7 +701,7 @@ pub struct CallRpc_Request {
     #[allow(missing_docs)]
     pub method: std::string::String,
 
-    /// JSON 对象文本，例如 "{}" 或 "{"fsm_id":300}"。
+    /// JSON object text, e.g. "{}" or "{"fsm_id":300}".
     pub params_json: std::string::String,
 
 
@@ -766,7 +766,7 @@ pub struct CallRpc_Response {
     #[allow(missing_docs)]
     pub message: std::string::String,
 
-    /// 机器人返回的原始 JSON 文本。
+    /// Raw JSON text returned by the robot.
     pub response_json: std::string::String,
 
 }

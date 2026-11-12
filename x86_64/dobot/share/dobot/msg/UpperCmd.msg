@@ -1,2 +1,2 @@
-# 上肢命令。话题 rt/upper/cmd。motor_cmd 长度 18，与底层 IDL 一致。
+# Upper body command. Topic rt/upper/cmd. motor_cmd has length 18, matching the underlying IDL.
 MotorCmd[18] motor_cmd

@@ -1,8 +1,8 @@
-# 与固件 dobot_fastdds_config.xml 对齐：RELIABLE + VOLATILE + KEEP_LAST depth 1。
+# Aligned with firmware dobot_fastdds_config.xml: RELIABLE + VOLATILE + KEEP_LAST depth 1.
 # heartbeat_period_ms: 1000
 # serialization: xcdr1
-# 底层 DDS 话题名在本话题前加 rt/。例如本文件对应 rt/set/fsm/id 。
-# ROS2 用户订阅去掉 rt/ 的名字。rmw 在 ROS_DOMAIN_ID 上会再次加上 rt/。
+# The underlying DDS topic name is this topic prefixed with rt/. For example, this file corresponds to rt/set/fsm/id.
+# ROS 2 users subscribe with the name without rt/. The rmw layer adds rt/ again on ROS_DOMAIN_ID.
 /set/fsm/id:
   subscription:
     reliability: reliable

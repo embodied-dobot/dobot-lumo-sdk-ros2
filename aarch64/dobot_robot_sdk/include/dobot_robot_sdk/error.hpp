@@ -5,7 +5,7 @@
 
 namespace dobot_robot_sdk {
 
-// 稳定错误码。增加新码用新的数字，已有数字的含义不改。
+// Stable error codes. New codes get new numbers; existing numbers never change meaning.
 enum class ErrorCode : std::int32_t {
   kOk = 0,
   kNotInitialized = 1,

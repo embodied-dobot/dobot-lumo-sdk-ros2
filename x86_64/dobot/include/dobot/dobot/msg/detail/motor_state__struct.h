@@ -22,41 +22,41 @@ extern "C"
 
 /// Struct defined in msg/MotorState in the package dobot.
 /**
-  * 单个关节的伺服状态。字段顺序与 dobot::msg::dds_::MotorState_ 一致。
-  * 电机模式，原始协议值，范围 0–255。
+  * Servo state of a single joint. Field order matches dobot::msg::dds_::MotorState_.
+  * Motor mode, raw protocol value, range 0-255.
  */
 typedef struct dobot__msg__MotorState
 {
   uint8_t mode;
-  /// 关节角位置，单位 rad。
+  /// Joint position, in rad.
   float q;
-  /// 关节角速度，单位 rad/s。
+  /// Joint velocity, in rad/s.
   float dq;
-  /// 关节角加速度，单位 rad/s^2。
+  /// Joint acceleration, in rad/s^2.
   float ddq;
-  /// 估计力矩，单位 N·m。
+  /// Estimated torque, in N·m.
   float tau_est;
-  /// 力矩指令回读，单位 N·m。
+  /// Torque command readback, in N·m.
   float tau_cmd;
-  /// 电流反馈，原始协议值。
+  /// Current feedback, raw protocol value.
   float current_feedback;
-  /// 电流指令，原始协议值。
+  /// Current command, raw protocol value.
   float current_cmd;
-  /// 原始角位置，单位 rad。
+  /// Raw position, in rad.
   float q_raw;
-  /// 原始角速度，单位 rad/s。
+  /// Raw velocity, in rad/s.
   float dq_raw;
-  /// 原始角加速度，单位 rad/s^2。
+  /// Raw acceleration, in rad/s^2.
   float ddq_raw;
-  /// 原始力矩，单位 N·m。
+  /// Raw torque, in N·m.
   float tau_raw;
-  /// 伺服控制板温度原始值，范围 0–255。
+  /// Raw servo driver board temperature, range 0-255.
   uint8_t mcu_temp;
-  /// MOS 温度原始值，范围 0–255。
+  /// Raw MOS temperature, range 0-255.
   uint8_t mos_temp;
-  /// 电机温度原始值，范围 0–255。
+  /// Raw motor temperature, range 0-255.
   uint8_t motor_temp;
-  /// 母线电压原始值，范围 0–255，缩放由伺服协议定义。
+  /// Raw bus voltage, range 0-255; scaling is defined by the servo protocol.
   uint8_t bus_voltage;
 } dobot__msg__MotorState;
 

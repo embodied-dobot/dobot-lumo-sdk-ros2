@@ -143,11 +143,11 @@ dobot__msg__FsmInfo__get_type_description(
 }
 
 static char toplevel_type_raw_source[] =
-  "# \\xe4\\xb8\\x80\\xe4\\xb8\\xaa\\xe8\\xbf\\x90\\xe6\\x8e\\xa7\\xe7\\x8a\\xb6\\xe6\\x80\\x81\\xe6\\x9c\\xba\\xe3\\x80\\x82\\xe5\\xaf\\xb9\\xe5\\xba\\x94 C++ \\xe7\\x9a\\x84 dobot::motion::FsmInfo\\xe3\\x80\\x82\n"
+  "# One motion control FSM. Corresponds to C++ dobot::motion::FsmInfo.\n"
   "int32 fsm_id\n"
   "bool is_dance\n"
   "string name\n"
-  "# \\xe4\\xbb\\xa5\\xe4\\xb8\\x8b\\xe5\\x9b\\x9b\\xe9\\xa1\\xb9\\xe5\\x8f\\xaa\\xe5\\x9c\\xa8 is_dance \\xe4\\xb8\\xba true \\xe6\\x97\\xb6\\xe6\\x9c\\x89\\xe5\\x86\\x85\\xe5\\xae\\xb9\\xef\\xbc\\x8c\\xe5\\x90\\xa6\\xe5\\x88\\x99\\xe6\\x98\\xaf\\xe7\\xa9\\xba\\xe4\\xb8\\xb2\\xe6\\x88\\x96 0\\xe3\\x80\\x82\n"
+  "# The following four fields are populated only when is_dance is true; otherwise they are an empty string or 0.\n"
   "string dance_name\n"
   "string model_file\n"
   "int32 motion_loop_length\n"
@@ -166,7 +166,7 @@ dobot__msg__FsmInfo__get_individual_type_description_source(
   static const rosidl_runtime_c__type_description__TypeSource source = {
     {dobot__msg__FsmInfo__TYPE_NAME, 17, 17},
     {msg_encoding, 3, 3},
-    {toplevel_type_raw_source, 236, 236},
+    {toplevel_type_raw_source, 333, 333},
   };
   return &source;
 }

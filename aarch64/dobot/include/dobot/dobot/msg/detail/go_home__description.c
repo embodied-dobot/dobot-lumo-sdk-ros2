@@ -66,8 +66,8 @@ dobot__msg__GoHome__get_type_description(
 }
 
 static char toplevel_type_raw_source[] =
-  "# \\xe5\\x9b\\x9e\\xe9\\x9b\\xb6\\xe3\\x80\\x82\\xe8\\xaf\\x9d\\xe9\\xa2\\x98 rt/go/home\\xe3\\x80\\x82\\xe6\\xaf\\x8f\\xe4\\xb8\\x80\\xe4\\xbd\\x8d\\xe5\\xaf\\xb9\\xe5\\xba\\x94\\xe4\\xb8\\x80\\xe8\\xb7\\xaf\\xe7\\x94\\xb5\\xe6\\x9c\\xba\\xef\\xbc\\x8ctrue \\xe8\\xa1\\xa8\\xe7\\xa4\\xba\\xe8\\xaf\\xa5\\xe8\\xb7\\xaf\\xe5\\x8f\\x82\\xe4\\xb8\\x8e\\xe5\\x9b\\x9e\\xe9\\x9b\\xb6\\xe3\\x80\\x82\n"
-  "# \\xe9\\x95\\xbf\\xe5\\xba\\xa6 30\\xef\\xbc\\x8c\\xe4\\xb8\\x8e\\xe5\\xba\\x95\\xe5\\xb1\\x82 IDL \\xe4\\xb8\\x80\\xe8\\x87\\xb4\\xe3\\x80\\x82\n"
+  "# Go home. Topic rt/go/home. Each bit maps to one motor; true means that motor takes part in homing.\n"
+  "# Length 30, matching the underlying IDL.\n"
   "bool[30] flag";
 
 static char msg_encoding[] = "msg";
@@ -82,7 +82,7 @@ dobot__msg__GoHome__get_individual_type_description_source(
   static const rosidl_runtime_c__type_description__TypeSource source = {
     {dobot__msg__GoHome__TYPE_NAME, 16, 16},
     {msg_encoding, 3, 3},
-    {toplevel_type_raw_source, 78, 78},
+    {toplevel_type_raw_source, 157, 157},
   };
   return &source;
 }

@@ -6,8 +6,8 @@
 module dobot {
   module msg {
     @verbatim (language="comment", text=
-      "清错。话题 rt/clear/errors。" "\n"
-      "调用方自增的消息编号，用于区分重复请求。")
+      "Clear errors. Topic rt/clear/errors." "\n"
+      "Message id incremented by the caller, used to distinguish repeated requests.")
     struct ClearErrors {
       int32 msg_id;
     };

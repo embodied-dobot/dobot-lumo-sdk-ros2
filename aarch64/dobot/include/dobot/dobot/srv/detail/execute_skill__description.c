@@ -353,10 +353,10 @@ dobot__srv__ExecuteSkill_Event__get_type_description(
 }
 
 static char toplevel_type_raw_source[] =
-  "# \\xe6\\x92\\xad\\xe6\\x94\\xbe\\xe6\\x9c\\xba\\xe5\\x99\\xa8\\xe4\\xba\\xba\\xe6\\x8a\\x80\\xe8\\x83\\xbd\\xe7\\x9b\\xae\\xe5\\xbd\\x95\\xe9\\x87\\x8c\\xe7\\x9a\\x84\\xe5\\x8a\\xa8\\xe4\\xbd\\x9c\\xe3\\x80\\x82\\xe5\\xaf\\xb9\\xe5\\xba\\x94 C++ \\xe7\\x9a\\x84 MotionRpc::ExecuteAction\\xe3\\x80\\x82\n"
-  "# file_path \\xe6\\x98\\xaf\\xe6\\x9c\\xba\\xe5\\x99\\xa8\\xe4\\xba\\xba\\xe4\\xb8\\x8a\\xe6\\x8a\\x80\\xe8\\x83\\xbd\\xe7\\x9b\\xae\\xe5\\xbd\\x95\\xe9\\x87\\x8c\\xe7\\x9a\\x84\\xe6\\x96\\x87\\xe4\\xbb\\xb6\\xe5\\x90\\x8d\\xef\\xbc\\x8c\\xe4\\xb8\\x8d\\xe6\\x98\\xaf\\xe8\\xb0\\x83\\xe7\\x94\\xa8\\xe6\\x96\\xb9\\xe6\\x9c\\xac\\xe6\\x9c\\xba\\xe8\\xb7\\xaf\\xe5\\xbe\\x84\\xe3\\x80\\x82\n"
+  "# Play an action from the robot skill directory. Corresponds to C++ MotionRpc::ExecuteAction.\n"
+  "# file_path is a file name in the skill directory on the robot, not a path on the caller machine.\n"
   "string file_path\n"
-  "# \\xe5\\x8f\\xaa\\xe8\\xa6\\x86\\xe7\\x9b\\x96\\xe8\\xbf\\x99\\xe6\\xac\\xa1 RPC \\xe5\\xbe\\x80\\xe8\\xbf\\x94\\xef\\xbc\\x8c\\xe4\\xb8\\x8d\\xe8\\xa1\\xa8\\xe7\\xa4\\xba\\xe5\\x8a\\xa8\\xe4\\xbd\\x9c\\xe5\\xb7\\xb2\\xe7\\xbb\\x8f\\xe6\\x92\\xad\\xe5\\xae\\x8c\\xe3\\x80\\x82\n"
+  "# Covers only this RPC round trip; it does not mean the action has finished playing.\n"
   "int32 timeout_ms\n"
   "---\n"
   "int32 code\n"
@@ -375,7 +375,7 @@ dobot__srv__ExecuteSkill__get_individual_type_description_source(
   static const rosidl_runtime_c__type_description__TypeSource source = {
     {dobot__srv__ExecuteSkill__TYPE_NAME, 22, 22},
     {srv_encoding, 3, 3},
-    {toplevel_type_raw_source, 179, 179},
+    {toplevel_type_raw_source, 341, 341},
   };
   return &source;
 }

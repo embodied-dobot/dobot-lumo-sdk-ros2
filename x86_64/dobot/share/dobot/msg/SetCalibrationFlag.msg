@@ -1,3 +1,3 @@
-# 标定标志。话题 rt/set/calibration/flag。每一位对应一路关节。
-# 长度 30，与底层 IDL 一致。
+# Calibration flag. Topic rt/set/calibration/flag. Each bit maps to one joint.
+# Length 30, matching the underlying IDL.
 bool[30] flag

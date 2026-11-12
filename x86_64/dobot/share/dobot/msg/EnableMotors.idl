@@ -7,8 +7,8 @@ module dobot {
   module msg {
     typedef boolean boolean__30[30];
     @verbatim (language="comment", text=
-      "电机使能。话题 rt/enable/motors。每一位对应一路电机，true 为使能。" "\n"
-      "长度 30，与底层 IDL 一致。")
+      "Motor enable. Topic rt/enable/motors. Each bit maps to one motor; true means enabled." "\n"
+      "Length 30, matching the underlying IDL.")
     struct EnableMotors {
       boolean__30 flag;
     };

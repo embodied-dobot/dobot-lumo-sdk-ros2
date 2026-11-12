@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""发布遥控和站立指令。参数不合法时 SDK 会抛 DobotError，不会发出去。"""
+"""Publish remote-control and stand commands. If a parameter is invalid, the SDK raises DobotError and nothing is sent."""
 
 import rclpy
 from dobot.msg import RemoteControl, StandingControl
@@ -24,7 +24,7 @@ def main():
     except DobotError as exc:
         node.get_logger().error(str(exc))
         raise SystemExit(1) from exc
-    node.get_logger().info("已发布 /remote/control 和 /stand/cmd。")
+    node.get_logger().info("Published /remote/control and /stand/cmd.")
     node.destroy_node()
     rclpy.shutdown()
 

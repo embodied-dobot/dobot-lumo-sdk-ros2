@@ -1,5 +1,5 @@
-# 遥控速度意图。话题 rt/remote/control。
-# 左摇杆，前后/左右。
+# Remote control velocity intent. Topic rt/remote/control.
+# Left stick, forward/backward and left/right.
 JoystickValue btn_move
-# 右摇杆，转向。
+# Right stick, turning.
 JoystickValue btn_turn

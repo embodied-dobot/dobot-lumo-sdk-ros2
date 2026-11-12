@@ -14,8 +14,8 @@ int main(int argc, char** argv) {
     return 1;
   }
   client.subscribe_lower_state([&](const dobot::msg::LowerState::SharedPtr msg) {
-    // 在这里写业务。msg->motor_state[i].q 单位是 rad。
-    RCLCPP_INFO_THROTTLE(node->get_logger(), *node->get_clock(), 1000, "收到下肢状态 ts=%lu", static_cast<unsigned long>(msg->timestamp_us));
+    // Add your logic here. msg->motor_state[i].q is in rad.
+    RCLCPP_INFO_THROTTLE(node->get_logger(), *node->get_clock(), 1000, "Received lower-body state ts=%lu", static_cast<unsigned long>(msg->timestamp_us));
   });
   rclcpp::spin(node);
   rclcpp::shutdown();
