@@ -107,10 +107,13 @@ ROS_DOMAIN_ID=0 ros2 service call /dobot/get_fsm_list dobot/srv/GetFsmList "{tim
 
 ## 支持与联系
 
-- **缺陷反馈与功能建议：** {{ISSUE_TRACKER_URL}}
-- **维护者：** {{MAINTAINER_NAME_OR_EMAIL}}
+- **缺陷反馈与功能建议：** 请在本仓库的 [Issues](../../issues) 页面提交。
 
 提交缺陷反馈时，请提供架构、ROS 发行版、机器人型号、复现步骤，以及预期行为和实际行为。
+
+## 安全
+
+请勿通过公开 Issue 报告安全漏洞。请使用 GitHub 的私有安全公告：在本仓库的 **Security** 页面选择 **Report a vulnerability**，私下提交。
 
 ## 许可证
 
