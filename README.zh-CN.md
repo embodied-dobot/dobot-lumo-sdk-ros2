@@ -35,7 +35,7 @@ docker exec -it ros2_lyrical bash
 - 镜像里没有 g++。只是使用本目录的安装结果不用装；要在容器里编译自己的工程时，先装一次：`apt-get update && apt-get install -y build-essential`。
 - 容器删掉后，容器里写的东西都没了。要保留的文件放在挂载的目录里。
 
-进入容器后，按下面「使用前先加载」的步骤加载 ROS 2 和本目录。路径换成容器里的，例如 `/root/workspace/dobot-sdk-ros2/x86_64/setup.bash`。
+进入容器后，按下面「使用前先加载」的步骤加载 ROS 2 和本目录。路径换成容器里的，例如 `/root/workspace/dobot-lumo-sdk-ros2/x86_64/setup.bash`。
 
 先确认能收到机器人的数据，再写自己的程序：
 

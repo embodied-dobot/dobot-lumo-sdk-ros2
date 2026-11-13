@@ -39,7 +39,7 @@ docker exec -it ros2_lyrical bash
 
 ### Load the environment
 
-Inside the container, load ROS 2 first and then the architecture-specific install prefix. Use container paths, for example `/root/workspace/dobot-sdk-ros2/x86_64/setup.bash`:
+Inside the container, load ROS 2 first and then the architecture-specific install prefix. Use container paths, for example `/root/workspace/dobot-lumo-sdk-ros2/x86_64/setup.bash`:
 
 ```bash
 source /opt/ros/lyrical/setup.bash

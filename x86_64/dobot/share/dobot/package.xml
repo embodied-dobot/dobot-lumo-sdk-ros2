@@ -2,7 +2,7 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>dobot</name>
-  <version>0.2.0</version>
+  <version>0.2.1</version>
   <description>Dobot robot ROS 2 interfaces. The package name matches the firmware; DDS type names are dobot::msg::dds_::Xxx_ and field order matches the native IDL.</description>
   <maintainer email="sdk@dobot.local">dobot</maintainer>
   <license>Apache-2.0</license>
